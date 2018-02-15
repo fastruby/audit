@@ -1,2 +1,19 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="brand-title">Vulnerable Gems</span>
+  </button>
+</nav>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Upload your Gemfile.lock</h1>
+    <p class="lead">When you upload your Gemfile.lock, this website will check it and return a list of gems that are vulnerable.</p>
+
+    <%= form_for @file, url: gemfile_index_path, html: { multipart: true } do |form| %>
+      <%= form.file_field :avatar %>
+      <%= form.submit %>
+    <% end %>
+
+    <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">View navbar docs &raquo;</a>
+  </div>
+ </div>
