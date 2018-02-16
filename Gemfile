@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem "paperclip", "~> 5.2.1"
+gem 'aws-sdk', '~> 2.3.0'
 gem 'pg', '~> 0.8'
 
 group :development, :test do
