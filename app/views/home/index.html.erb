@@ -1,19 +1,37 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="brand-title">Vulnerable Gems</span>
-  </button>
-</nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vulnerable Gems</title>
+  </head>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>Upload your Gemfile.lock</h1>
-    <p class="lead">When you upload your Gemfile.lock, this website will check it and return a list of gems that are vulnerable.</p>
+  <body>
 
-    <%= form_for @file, url: gemfile_index_path, html: { multipart: true } do |form| %>
-      <%= form.file_field :avatar %>
-      <%= form.submit %>
-    <% end %>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="brand-title">Vulnerable Gems</span>
+      </button>
+    </nav>
 
-    <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">View navbar docs &raquo;</a>
-  </div>
- </div>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Upload your Gemfile.lock</h1>
+        <p class="lead">When you upload your Gemfile.lock, this website will check it and return a list of gems that are vulnerable.</p>
+
+        <%= form_for @file, html: { multipart: true } do |form| %>
+          <%= form.file_field :file %>
+          <%= form.submit %>
+        <% end %>
+        <br/>
+        <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Check My Gemfile &raquo;</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <span class="text"> A MicroSite by Ombu Labs </span>
+      </div>
+    </div>
+
+  </body>
+</html>
