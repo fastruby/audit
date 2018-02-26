@@ -20,10 +20,9 @@
 
         <%= form_for @file, html: { multipart: true } do |form| %>
           <%= form.file_field :file %>
-          <%= form.submit %>
+          <%= form.submit "Check My Gemfile &raquo;".html_safe, class: "btn btn-lg btn-primary", id: "button" %>
         <% end %>
         <br/>
-        <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Check My Gemfile &raquo;</a>
       </div>
     </div>
 

@@ -2,12 +2,16 @@ class GemfilesController < ApplicationController
   def create
     @file = Gemfile.new(gemfile_params)
 
-    debugger
     if @file.save
-      redirect_to file_path(@file), notice: "Gemfile successfully imported"
+      @file.check_with_bundler_audit
+      redirect_to gemfile_path(@file), notice: "Gemfile successfully imported"
     else
-      redirect_to "/", error: "There was a problem"
+      redirect_to root_path, error: "There was a problem"
     end
+  end
+
+  def show
+    @file = Gemfile.find(params[:id])
   end
 
   private
