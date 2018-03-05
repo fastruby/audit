@@ -13,17 +13,38 @@ class Gemfile < ApplicationRecord
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
 
   def check_with_bundler_audit
-    result = {
+    vulnerabilities = {
       warnings: [], advisories: {}
     }
-    #
-    scanner = Bundler::Audit::Scanner.new(
-      File.dirname(file.path),
-      File.basename(file.path)
-    )
 
-    # TODO scan gemfile.lock
+    scanner = Bundler::Audit::Scanner.new() # TODO self.file - insert path to gemfile.lock and file.lock name, put this inside #initialize(root = Dir.pwd, gemfile_lock = 'Gemfile.lock'))
+    vulnerable = false
 
-    result
+    scanner.scan do |result|
+      vulnerable = true
+      case result
+      when Bundler::Audit::Scanner::InsecureSource
+        vulnerabilities[:warnings] << "Insecure Source URI found: #{result.source}"
+      when Bundler::Audit::Scanner::UnpatchedGem
+        vulnerabilities[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
+           :name => result.gem.name,
+           :version => result.gem.version,
+           :id =>result.advisory.id,
+           :url => result.advisory.url,
+           :title => result.advisory.title,
+           :description => result.advisory.description
+         }
+      end
+    end
+
+    if vulnerable
+      puts "Vulnerabilities found!"
+    else
+      puts "No vulnerabilities found"
+    end
+
+    debugger
+
+    return vulnerabilities
   end
 end
