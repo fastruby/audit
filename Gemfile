@@ -13,6 +13,7 @@ gem 'bundler-audit', git: 'git@github.com:ombulabs/bundler-audit.git'
 # gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+gem 'nokogiri', '~> 1.8.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
