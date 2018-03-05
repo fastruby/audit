@@ -22,7 +22,7 @@ RSpec.describe Gemfile do
       let(:gemfile_lock) do
         "vulnerable_Gemfile.lock"
       end
-      let(:result) do
+      let(:vulnerabilities) do
         {
           warnings: ["Insecure Source URI found: http://rubygems.org/"],
           advisories: {
@@ -77,9 +77,9 @@ RSpec.describe Gemfile do
         }
       end
 
-      it "returns an empty hash" do
+      it "returns a hash with the vulnerabilities" do
         expect(subject.save).to be_truthy
-        expect(subject.check_with_bundler_audit).to eq(result)
+        expect(subject.check_with_bundler_audit).to eq(vulnerabilities)
       end
     end
   end
