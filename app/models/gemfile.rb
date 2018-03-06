@@ -44,7 +44,7 @@ class Gemfile < ApplicationRecord
       when Bundler::Audit::Scanner::UnpatchedGem
         vulnerabilities[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
            :name => result.gem.name,
-           :version => result.gem.version,
+           :version => result.gem.version.to_s,
            :id =>result.advisory.id,
            :url => result.advisory.url,
            :title => result.advisory.title,
@@ -53,14 +53,15 @@ class Gemfile < ApplicationRecord
       end
     end
 
-    if vulnerable
-      puts "Vulnerabilities found!"
-    else
-      puts "No vulnerabilities found"
-    end
-
-    debugger
-
     return vulnerabilities
+  end
+
+  def extract_dir_from(file)
+    path_parts = Pathname(file).each_filename.to_a
+    "/" + File.join(path_parts[0..-2])
+  end
+
+  def extract_filename_from(file)
+    Pathname(file).each_filename.to_a.last
   end
 end

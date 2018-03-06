@@ -79,7 +79,16 @@ RSpec.describe Gemfile do
 
       it "returns a hash with the vulnerabilities" do
         expect(subject.save).to be_truthy
-        expect(subject.check_with_bundler_audit).to eq(vulnerabilities)
+        result = subject.check_with_bundler_audit
+        expect(result).to include(:warnings)
+        expect(result).to include(:advisories)
+        expect(result[:warnings]).to eq(["Insecure Source URI found: http://rubygems.org/"])
+        expect(result[:advisories]).to include("actionmailer@3.0.1")
+        expect(result[:advisories]).to include("actionpack@3.0.1")
+        expect(result[:advisories]).to include("actionview@3.0.1")
+        expect(result[:advisories]).to include("activerecord@3.0.1")
+        expect(result[:advisories]).to include("activesupport@3.0.1")
+        expect(result[:advisories]).to include("nokogiri@1.8.1")
       end
     end
   end
