@@ -17,7 +17,14 @@ class Gemfile < ApplicationRecord
       warnings: [], advisories: {}
     }
 
-    scanner = Bundler::Audit::Scanner.new() # TODO self.file - insert path to gemfile.lock and file.lock name, put this inside #initialize(root = Dir.pwd, gemfile_lock = 'Gemfile.lock'))
+    # temp_file = Tempfile.new("Gemfile.lock")
+    # temp_file.write(Paperclip.io_adapters.for(file).read) # TODO: Can we write it before uploading?
+
+    # scanner = Bundler::Audit::Scanner.new(file.path) # TO DO self.file - insert path to gemfile.lock and file.lock name
+    scanner = Bundler::Audit::Scanner.new(
+      extract_dir_from(file.path),
+      extract_filename_from(file.path)
+    )
     vulnerable = false
 
     scanner.scan do |result|
@@ -28,7 +35,7 @@ class Gemfile < ApplicationRecord
       when Bundler::Audit::Scanner::UnpatchedGem
         vulnerabilities[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
            :name => result.gem.name,
-           :version => result.gem.version,
+           :version => result.gem.version.to_s,
            :id =>result.advisory.id,
            :url => result.advisory.url,
            :title => result.advisory.title,
@@ -37,14 +44,15 @@ class Gemfile < ApplicationRecord
       end
     end
 
-    if vulnerable
-      puts "Vulnerabilities found!"
-    else
-      puts "No vulnerabilities found"
-    end
-
-    debugger
-
     return vulnerabilities
+  end
+
+  def extract_dir_from(file)
+    path_parts = Pathname(file).each_filename.to_a
+    "/" + File.join(path_parts[0..-2])
+  end
+
+  def extract_filename_from(file)
+    Pathname(file).each_filename.to_a.last
   end
 end
