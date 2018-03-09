@@ -13,7 +13,7 @@ class Gemfile < ApplicationRecord
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
 
   def check_with_bundler_audit
-    vulnerabilities = {
+    @list = {
       warnings: [], advisories: {}
     }
 
@@ -31,9 +31,9 @@ class Gemfile < ApplicationRecord
       vulnerable = true
       case result
       when Bundler::Audit::Scanner::InsecureSource
-        vulnerabilities[:warnings] << "Insecure Source URI found: #{result.source}"
+        @list[:warnings] << "Insecure Source URI found: #{result.source}"
       when Bundler::Audit::Scanner::UnpatchedGem
-        vulnerabilities[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
+        @list[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
            :name => result.gem.name,
            :version => result.gem.version.to_s,
            :id =>result.advisory.id,
@@ -44,7 +44,7 @@ class Gemfile < ApplicationRecord
       end
     end
 
-    return vulnerabilities
+    return @list
   end
 
   def extract_dir_from(file)
