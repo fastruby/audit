@@ -36,7 +36,7 @@
                <br/>
                <span class="subtitle"> Title: </span><%= advisory[1][:title] %>
                <br/>
-               <span class="subtitle"> Description: </span><%= advisory[1][:description] %>
+               <span class="subtitle"> Description: </span><%= raw render_description(advisory[1][:description]) %>
                <hr/>
             <% end %>
         <% end %>
