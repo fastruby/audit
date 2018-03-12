@@ -15,7 +15,7 @@
 
     <div class="container">
       <div class="jumbotron">
-        <% if @vulnerabilities.empty? %>
+        <% if @vulnerabilities.values.any? &:empty? %>
             <h3 class="title" id="green">No vulnerabilities found!</h3>
         <% else %>
             <h3 class="title" id="red">Vulnerabilities found!</h3>
