@@ -20,4 +20,6 @@
 /node_modules
 /yarn-error.log
 
+spec/test_files
+
 .byebug_history
