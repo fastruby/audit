@@ -17,25 +17,6 @@ class Gemfile < ApplicationRecord
       warnings: [], advisories: {}
     }
 
-    scanner.scan do |insp|
-      case insp
-      when Bundler::Audit::Scanner::InsecureSource
-        result[:warnings] << "Insecure Source URI found: #{insp.source}"
-      when Bundler::Audit::Scanner::UnpatchedGem
-        gem = insp.gem
-        advisory = insp.advisory
-
-        result[:advisories]["#{gem.name}@#{gem.version}"] = {
-          name: gem.name,
-          version: gem.version.to_s,
-          id: advisory.id,
-          url: advisory.url,
-          title: advisory.title,
-          description: advisory.description
-        }
-      end
-    end
-
     scanner.scan do |result|
       vulnerable = true
       case result
@@ -53,7 +34,7 @@ class Gemfile < ApplicationRecord
       end
     end
 
-    return @list
+    @list
   end
 
   def extract_dir_from(file)
@@ -63,5 +44,12 @@ class Gemfile < ApplicationRecord
 
   def extract_filename_from(file)
     Pathname(file).each_filename.to_a.last
+  end
+
+  def scanner
+    Bundler::Audit::Scanner.new(
+      File.dirname(file.path),
+      File.basename(file.path)
+    )
   end
 end
