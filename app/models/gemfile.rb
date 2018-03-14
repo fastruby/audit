@@ -8,33 +8,39 @@ class Gemfile < ApplicationRecord
   # Validate filename
   validates_attachment_file_name :file, matches: [/lock\Z/]
 
+  after_post_process :check_with_bundler_audit
   # Explicitly do not validate
   # do_not_validate_attachment_file_type :avatar
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
 
+  DEFAULT = {
+    warnings: [], advisories: {}
+  }
+
   def check_with_bundler_audit
-    @list = {
-      warnings: [], advisories: {}
-    }
+    return DEFAULT if gemfile_path.blank?
+    return @result if @result
+
+    @result = DEFAULT
 
     scanner.scan do |result|
       vulnerable = true
       case result
       when Bundler::Audit::Scanner::InsecureSource
-        @list[:warnings] << "Insecure Source URI found: #{result.source}"
+        @result[:warnings] << "Insecure Source URI found: #{result.source}"
       when Bundler::Audit::Scanner::UnpatchedGem
-        @list[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
-           :name => result.gem.name,
-           :version => result.gem.version.to_s,
-           :id =>result.advisory.id,
-           :url => result.advisory.url,
-           :title => result.advisory.title,
-           :description => result.advisory.description
+        @result[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
+           name: result.gem.name,
+           version: result.gem.version.to_s,
+           id: result.advisory.id,
+           url: result.advisory.url,
+           title: result.advisory.title,
+           description: result.advisory.description
          }
       end
     end
 
-    @list
+    @result
   end
 
   def extract_dir_from(file)
@@ -48,8 +54,14 @@ class Gemfile < ApplicationRecord
 
   def scanner
     Bundler::Audit::Scanner.new(
-      File.dirname(file.path),
-      File.basename(file.path)
+      File.dirname(gemfile_path),
+      File.basename(gemfile_path)
     )
+  end
+
+  def gemfile_path
+    return if file.queued_for_write[:original].blank?
+
+    file.queued_for_write[:original].path
   end
 end
