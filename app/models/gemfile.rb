@@ -2,11 +2,16 @@ require "bundler/audit/scanner"
 
 class Gemfile < ApplicationRecord
   has_attached_file :file
+
   # Validate content type
   validates_attachment_content_type :file, content_type: /\Atext/
 
   # Validate filename
   validates_attachment_file_name :file, matches: [/lock\Z/]
+
+  validates :alpha_id, uniqueness: true
+
+  before_validation :generate_alpha_id, on: :create
 
   after_post_process :check_with_bundler_audit
   # Explicitly do not validate
@@ -59,9 +64,17 @@ class Gemfile < ApplicationRecord
     )
   end
 
+  private
+
   def gemfile_path
     return if file.queued_for_write[:original].blank?
 
     file.queued_for_write[:original].path
+  end
+
+  def generate_alpha_id
+    return if alpha_id.present?
+
+    self.alpha_id = SecureRandom.hex(2).upcase +  SecureRandom.hex(2).upcase
   end
 end
