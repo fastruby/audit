@@ -1,0 +1,19 @@
+{
+  "name": "audit",
+  "description": "Bundler Audit Tool",
+  "repository": "https://github.com/ombulabs/audit",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    }
+  ]
+}
