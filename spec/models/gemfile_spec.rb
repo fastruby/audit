@@ -4,7 +4,35 @@ RSpec.describe Gemfile do
   let(:file) do
     File.new("#{Rails.root}/spec/support/fixtures/#{gemfile_lock}")
   end
+  let(:gemfile_lock) do
+    "healthy_Gemfile.lock"
+  end
   subject { Gemfile.new(file: file) }
+
+  describe "#valid?" do
+    let(:alpha_id_size) { 8 }
+
+    context "when subject is valid" do
+      it "returns true and generates alpha_id" do
+        expect(subject).to be_valid
+        expect(subject.alpha_id.size).to eq(alpha_id_size)
+      end
+    end
+
+    context "when subject is invalid" do
+      let(:file) do
+        File.new("#{Rails.root}/Gemfile")
+      end
+      let(:messages) do
+        ["File file name is invalid", "File is invalid"]
+      end
+
+      it "returns false" do
+        expect(subject).not_to be_valid
+        expect(subject.errors.full_messages).to eq messages
+      end
+    end
+  end
 
   describe "#check_with_bundler_audit" do
     context "when Gemfile.lock is not vulnerable" do
