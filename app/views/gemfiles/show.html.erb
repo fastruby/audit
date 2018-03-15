@@ -15,11 +15,7 @@
 
     <div class="container">
       <div class="jumbotron">
-<<<<<<< HEAD
         <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
-=======
-        <% if @vulnerabilities.values.any? &:empty? %>
->>>>>>> 347b145e3c8a0573f01ea9d82fbf2fd384ed70c8
             <h3 class="title" id="green">No vulnerabilities found!</h3>
         <% else %>
             <h3 class="title" id="red">Vulnerabilities found!</h3>
@@ -40,11 +36,7 @@
                <br/>
                <span class="subtitle"> Title: </span><%= advisory[1][:title] %>
                <br/>
-<<<<<<< HEAD
                <span class="subtitle"> Description: </span><%= advisory[1][:description] %>
-=======
-               <span class="subtitle"> Description: </span><%= raw render_description(advisory[1][:description]) %>
->>>>>>> 347b145e3c8a0573f01ea9d82fbf2fd384ed70c8
                <hr/>
             <% end %>
         <% end %>
