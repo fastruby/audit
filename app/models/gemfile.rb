@@ -8,14 +8,9 @@ class Gemfile < ApplicationRecord
   # Validate filename
   validates_attachment_file_name :file, matches: [/lock\Z/]
 
-  after_post_process :check_with_bundler_audit
   # Explicitly do not validate
   # do_not_validate_attachment_file_type :avatar
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
-
-  DEFAULT = {
-    warnings: [], advisories: {}
-  }
 
   def check_with_bundler_audit
     return DEFAULT if gemfile_path.blank?

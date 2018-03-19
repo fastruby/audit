@@ -10,8 +10,6 @@ class GemfilesController < ApplicationController
   end
 
   def show
-    @renderer = Redcarpet::Render::HTML.new(prettify: true)
-    @markdown = Redcarpet::Markdown.new(@renderer, fenced_code_blocks: true)
     @file = Gemfile.find(params[:id])
     @vulnerabilities = @file.check_with_bundler_audit
   end
