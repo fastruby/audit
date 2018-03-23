@@ -15,12 +15,12 @@
 
     <div class="container">
       <div class="jumbotron">
-        <h1>Upload your Gemfile.lock</h1>
+        <h1 class="main-title">Upload your Gemfile.lock</h1>
         <p class="lead">When you upload your Gemfile.lock, this website will check it and return a list of gems that are vulnerable.</p>
 
         <%= form_for @file, html: { multipart: true } do |form| %>
           <%= form.file_field :file %>
-          <%= form.submit "Check My Gemfile &raquo;".html_safe, class: "btn btn-lg btn-primary", id: "button" %>
+          <div><%= form.submit "Check My Gemfile &raquo;".html_safe, id: "check_button" %></div>
         <% end %>
         <br/>
       </div>
