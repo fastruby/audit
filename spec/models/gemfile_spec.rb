@@ -11,10 +11,18 @@ RSpec.describe Gemfile do
       let(:gemfile_lock) do
         "healthy_Gemfile.lock"
       end
+      let(:scanner) do
+        double("Bundler::Audit::Scanner", scan: [])
+      end
+
+      before do
+        allow_any_instance_of(Gemfile).to receive(:scanner).and_return(scanner)
+        @gemfile = Gemfile.new(file: file)
+      end
 
       it "returns an empty hash" do
-        expect(subject.save).to be_truthy
-        expect(subject.check_with_bundler_audit).to eq({warnings: [], advisories: {}})
+        expect(@gemfile.save).to be_truthy
+        expect(@gemfile.check_with_bundler_audit).to eq({warnings: [], advisories: {}})
       end
     end
 
