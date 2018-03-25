@@ -1,4 +1,8 @@
 Rails.application.configure do
+  config.paperclip_defaults = {
+    storage: :filesystem,
+    path: "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

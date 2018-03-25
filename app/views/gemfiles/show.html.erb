@@ -1,4 +1,49 @@
-Add some code to show the user his Gemfile processed
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vulnerable Gems</title>
+  </head>
 
-<br/>
-The id of the Gemfile is: <%= @file.id %>
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="brand-title">Vulnerable Gems</span>
+      </button>
+    </nav>
+
+    <div class="container">
+      <div class="jumbotron">
+        <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
+            <h3 class="title" id="green">No vulnerabilities found!</h3>
+        <% else %>
+            <h3 class="title" id="red">Vulnerabilities found!</h3>
+            <br/>
+            <h4>Warnings:</h4>
+              <%= @vulnerabilities[:warnings].join(", ") %>
+              <hr/>
+            <h4>Advisories:</h4>
+            <% @vulnerabilities[:advisories].each do |advisory| %>
+               <div class="advisory_title"> Vulnerable Gem: <%= advisory[0] %></div>
+               <span class="subtitle"> Name: </span><%= advisory[1][:name] %>
+               <br/>
+               <span class="subtitle"> Version: </span><%= advisory[1][:version] %>
+               <br/>
+               <span class="subtitle"> ID: </span><%= advisory[1][:id] %>
+               <br/>
+               <span class="subtitle"> URL: </span><%= advisory[1][:url] %>
+               <br/>
+               <span class="subtitle"> Title: </span><%= advisory[1][:title] %>
+               <br/>
+               <span class="subtitle"> Description: </span><%= raw render_description(advisory[1][:description]) %>
+               <hr/>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="navbar navbar-fixed-bottom" id="copyright">A MicroSite by Ombu Labs</div>
+
+  </body>
+</html>

@@ -2,6 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.title {
+  font-weight: bold;
+}
+
+#green {
+  color: #178e2d;
+}
+
+#red {
+  color: #b31f1f;
+}
+
+.advisory_title {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #8b0000
+}
+
+.subtitle {
+  font-weight: bold;
+}
+
+#copyright {
+  padding-left: 28px;
+  color: #007bff;
+  font-weight: bold;
+}
+
 .brand-title {
   width: 160px;
   font-weight: bold;

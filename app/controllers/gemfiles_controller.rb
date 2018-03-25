@@ -3,7 +3,6 @@ class GemfilesController < ApplicationController
     @file = Gemfile.new(gemfile_params)
 
     if @file.save
-      @file.check_with_bundler_audit
       redirect_to gemfile_path(@file), notice: "Gemfile successfully imported"
     else
       redirect_to root_path, error: "There was a problem"
@@ -11,7 +10,10 @@ class GemfilesController < ApplicationController
   end
 
   def show
+    @renderer = Redcarpet::Render::HTML.new(prettify: true)
+    @markdown = Redcarpet::Markdown.new(@renderer, fenced_code_blocks: true)
     @file = Gemfile.find(params[:id])
+    @vulnerabilities = @file.check_with_bundler_audit
   end
 
   private
