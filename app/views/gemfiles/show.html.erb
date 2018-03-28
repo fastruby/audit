@@ -14,10 +14,10 @@
         <% else %>
             <h3 class="title" id="red">Vulnerabilities found!</h3>
             <br/>
-            <h4>Warnings:</h4>
+            <h4 class="section-title">Warnings:</h4>
               <%= @vulnerabilities[:warnings].join(", ") %>
               <hr/>
-            <h4>Advisories:</h4>
+            <h4 class="section-title">Advisories:</h4>
             <% @vulnerabilities[:advisories].each do |advisory| %>
                <div class="advisory_title"> Vulnerable Gem: <%= advisory[0] %></div>
                <span class="subtitle"> Name: </span><%= advisory[1][:name] %>

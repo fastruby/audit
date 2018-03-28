@@ -1,20 +1,35 @@
 .title {
-  font-weight: bold;
+  font-weight: 300;
+  font-size: 41pt;
+}
+
+.section-title {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 16pt;
+  text-transform: uppercase;
 }
 
 #green {
-  color: #178e2d;
+  color: #D9F1F1;
 }
 
 #red {
-  color: #b31f1f;
+  color: #FFCC00;
 }
 
 .advisory_title {
   margin-top: 20px;
   margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 14pt;
+  text-transform: uppercase;
+  color: #F70A7C
+}
+
+.subtitle {
   font-weight: bold;
-  color: #8b0000
+  margin-right: 6px;
 }
 
 .container {
