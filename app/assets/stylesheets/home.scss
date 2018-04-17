@@ -32,20 +32,8 @@ header {
 
 /* Footer */
 
-footer {
-  color: #fff;
-  position: relative;
-  text-align: center;
-  padding-top: 45px;
-  padding-bottom: 45px;
-  overflow: hidden;
-}
-
-footer .menu a {
-  padding: 0 10px;
-  font-size: 12px;
-  color: #5d5a5a;
-  font-weight: 400;
+#footer {
+  width: 100%;
 }
 
 #check_button {
