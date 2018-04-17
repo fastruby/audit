@@ -7,22 +7,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
   </head>
 
   <body class="content">
-
-    <header class="full-width fixed">
-      <div class="logo-container">
-      <img src="/assets/logo.png">
-    </header>
 
     <div class="main">
       <%= yield %>
     </div>
 
-    <footer class="full-width">
+    <footer>
       <div class="logo-container">
-        <img id="footer" src="/assets/footer.png"/>
+        <h3 class="logo">
+          <a href="https://www.ombulabs.com" target="_blank" title="The Lean Software Boutique">
+            <span class="logo-ombu">Ombu</span>Labs
+          </a>
+        </h3>
+        <h2 class="slogan">
+          <a href="https://www.ombulabs.com" target="_blank" title="Ombu Labs"> THE LEAN SOFTWARE BOUTIQUE </a>
+        </h2>
+      </div>
+      <div>
+        <p class="txt_footer">Made with ❤ in Philadelphia and Buenos Aires</p>
       </div>
     </footer>
 
