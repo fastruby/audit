@@ -130,6 +130,8 @@ footer .logo-container a:visited {
   background-repeat: no-repeat;
 }
 
+/* Button */
+
 #check_button {
   background-color: #57CE81;
   color: #272727;
@@ -145,4 +147,9 @@ footer .logo-container a:visited {
     display: inline-block;
     margin-bottom: 1em;
     margin-top: 1em;
+}
+
+#check_button:hover {
+  background-color: #58ff93;
+  color: #272727;
 }
