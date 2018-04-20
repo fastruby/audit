@@ -9,12 +9,16 @@
 
     <div class="main-content">
       <h1 class="main-title">Gemfile.lock Audit Tool</h1>
-      <p class="home-info">Upload your Gemfile.lock to find vulnerabilities in your application. This tool uses <span>bundler-audit</span> to audit your Gemfile using a database of known vulnerabilities. Your privacy is important to us, we won't share this information with anyone, ever.</p>
+      <p class="home-info">Upload your Gemfile.lock to find vulnerabilities in your application. This tool uses <a href="https://github.com/rubysec/bundler-audit">bundler-audit</a> to audit your Gemfile using a database of known vulnerabilities. Your privacy is important to us, we won't share this information with anyone, ever.</p>
       <h4 class="upload">UPLOAD YOUR FILE:</h3>
-      <%= form_for @file, html: { multipart: true } do |form| %>
-        <%= form.file_field :file %>
-        <div><%= form.submit "Check Vulnerabilities".html_safe, id: "check_button" %></div>
-      <% end %>
+        <%= form_for @file, html: { multipart: true } do |form| %>
+          <label class="file_container">
+            <%= form.file_field :file %>
+              Choose File
+              <input type="file"/>
+          </label>
+            <%= form.submit "Check Vulnerabilities".html_safe, id: "check_button"%>
+        <% end %>
       <br/>
     </div>
 

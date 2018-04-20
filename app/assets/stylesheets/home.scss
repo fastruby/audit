@@ -28,7 +28,7 @@
   padding-bottom: 30px;
 }
 
-.home-info span {
+.home-info a {
   color: #F70A7C;
 }
 
@@ -135,21 +135,52 @@ footer .logo-container a:visited {
 #check_button {
   background-color: #57CE81;
   color: #272727;
-    padding: 10px 20px;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 400;
-    margin-right: 2%;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 1em;
-    margin-top: 1em;
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-right: 2%;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  cursor: pointer;
 }
 
 #check_button:hover {
   background-color: #58ff93;
   color: #272727;
+}
+
+.file_container [type=file] {
+    cursor: pointer;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+
+.file_container {
+  overflow: hidden;
+  position: relative;
+    background: gray;
+    float: left;
+    padding: .5em;
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    margin-right: 2%;
+    display: inline-block;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
