@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:ombulabs/bundler-audit.git
+  remote: https://github.com/ombulabs/bundler-audit.git
   revision: b84d88f76c4d656421c1d810c9760b0fdea5d13a
   specs:
     bundler-audit (0.6.0)
