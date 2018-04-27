@@ -10,12 +10,12 @@
   text-transform: uppercase;
 }
 
-#green {
+#not_vulnerable {
   color: #D9F1F1;
 }
 
-#red {
-  color: #FFCC00;
+#vulnerable {
+  color: #F70A7C;
 }
 
 .advisory_title {
@@ -24,7 +24,7 @@
   font-weight: 700;
   font-size: 14pt;
   text-transform: uppercase;
-  color: #F70A7C
+  color: #FFCC00
 }
 
 .subtitle {

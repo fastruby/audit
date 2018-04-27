@@ -38,13 +38,6 @@ html {
   color: #F70A7C;
 }
 
-.upload {
-  font-size: 15px;
-  font-weight: 700;
-  padding-bottom: 20px;
-  letter-spacing: 0.5px;
-}
-
 /* Header */
 
 header {
@@ -140,7 +133,18 @@ footer .logo-container a:visited {
   background-repeat: no-repeat;
 }
 
-/* Button */
+/* Upload Button */
+
+.upload {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  display: inline;
+  padding-right: 20px;
+}
+
+/* Check Vulnerabilities Button */
 
 #check_button {
   background-color: #57CE81;
@@ -149,48 +153,17 @@ footer .logo-container a:visited {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  margin-right: 2%;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  display: inline-block;
+  display: block;
   margin-bottom: 1em;
-  margin-top: 1em;
+  margin-top: 2em;
   cursor: pointer;
 }
 
 #check_button:hover {
   background-color: #58ff93;
   color: #272727;
-}
-
-.file_container [type=file] {
-    cursor: pointer;
-    display: block;
-    font-size: 999px;
-    filter: alpha(opacity=0);
-    min-height: 100%;
-    min-width: 100%;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    text-align: right;
-    top: 0;
-}
-
-.file_container {
-  overflow: hidden;
-  position: relative;
-    background: gray;
-    float: left;
-    padding: .5em;
-    padding: 10px 20px;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 400;
-    margin-right: 2%;
-    display: inline-block;
-    margin-bottom: 1em;
-    margin-top: 1em;
 }

@@ -9,9 +9,9 @@
 
     <div class="main-content">
       <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
-          <h3 class="title" id="green">No vulnerabilities found!</h3>
+          <h3 class="title" id="not_vulnerable">No vulnerabilities found!</h3>
       <% else %>
-          <h3 class="title" id="red">Vulnerabilities found!</h3>
+          <h3 class="title" id="vulnerable">Vulnerabilities found!</h3>
           <br/>
           <h4 class="section-title">Warnings:</h4>
             <%= @vulnerabilities[:warnings].join(", ") %>              <hr/>
