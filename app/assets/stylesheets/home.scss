@@ -38,6 +38,11 @@ html {
   color: #F70A7C;
 }
 
+.home-info a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+  color: #F70A7C;
+}
+
 /* Header */
 
 header {
@@ -86,7 +91,7 @@ footer .logo-container {
   background-size: auto 80%;
 }
 
-.logo a {
+footer a:hover, a:visited, a:link, a:active {
   text-decoration: none;
 }
 
@@ -115,6 +120,7 @@ footer .logo-container a:visited {
   text-align: left;
   text-decoration: underline;
 }
+
 
 .txt_footer {
   font-family: "Lato", sans-serif;
@@ -149,6 +155,7 @@ footer .logo-container a:visited {
 #check_button {
   background-color: #57CE81;
   color: #272727;
+  border: 2px solid #57CE81;
   padding: 10px 20px;
   font-size: 16px;
   line-height: 22px;
