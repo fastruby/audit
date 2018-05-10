@@ -15,13 +15,16 @@
           <br/>
           <h4 class="section-title">Warnings:</h4>
           <% if @vulnerabilities[:warnings].empty? %>
-            <span class="subtitle"> No warnings found</span>
+            <span class="subtitle">No warnings found</span>
           <% else %>
             <%= @vulnerabilities[:warnings].join(", ") %>
           <% end %>
 
           <hr/>
           <h4 class="section-title">Advisories:</h4>
+          <% if @vulnerabilities[:advisories].empty? %>
+          <span class="subtitle">No advisories found</span>
+          <% else %>
           <% @vulnerabilities[:advisories].each do |advisory| %>
              <div class="advisory_title"> Vulnerable Gem: <%= advisory[0] %></div>
              <span class="subtitle"> Name: </span><%= advisory[1][:name] %>
@@ -36,6 +39,7 @@
               <br/>
              <span class="subtitle"> Description: </span><%= raw render_description(advisory[1][:description]) %>
              <hr/>
+          <% end %>
           <% end %>
       <% end %>
     </div>
