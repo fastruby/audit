@@ -13,8 +13,13 @@
       <% else %>
           <h3 class="title" id="vulnerable"><%= @vulnerabilities_count %> Vulnerabilities found!</h3>
           <br/>
-          <h4 class="section-title">Warnings:</h4>
-          <%= @vulnerabilities[:warnings].join(", ") %>
+          <% if @vulnerabilities[:warnings].empty? %>
+            <h4 class="section-title">Warnings:</h4>
+            <span class="subtitle"> No warnings found</span>
+          <% else %>
+            <%= @vulnerabilities[:warnings].join(", ") %>
+          <% end %>
+
           <hr/>
           <h4 class="section-title">Advisories:</h4>
           <% @vulnerabilities[:advisories].each do |advisory| %>
