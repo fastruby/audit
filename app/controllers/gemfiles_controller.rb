@@ -14,6 +14,7 @@ class GemfilesController < ApplicationController
     @markdown = Redcarpet::Markdown.new(@renderer, fenced_code_blocks: true)
     @file = Gemfile.find_by!(alpha_id: params[:id])
     @vulnerabilities = @file.check_with_bundler_audit
+    @vulnerabilities_count = @vulnerabilities[:advisories].size + @vulnerabilities[:warnings].size
   end
 
   private

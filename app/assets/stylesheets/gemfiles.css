@@ -1,0 +1,39 @@
+.title {
+  font-weight: 400;
+  font-size: 35pt;
+}
+
+.section-title {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 16pt;
+  text-transform: uppercase;
+}
+
+#not_vulnerable {
+  color: #D9F1F1;
+}
+
+#vulnerable {
+  color: #F70A7C;
+}
+
+.advisory_title {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 14pt;
+  text-transform: uppercase;
+  color: #FFCC00
+}
+
+.subtitle {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
