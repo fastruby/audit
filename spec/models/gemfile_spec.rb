@@ -31,6 +31,15 @@ RSpec.describe Gemfile do
         expect(subject).not_to be_valid
         expect(subject.errors.full_messages).to eq messages
       end
+
+      context "when file is nil" do
+        let(:file) { nil }
+
+        it "returns false" do
+          expect(subject).not_to be_valid
+          expect(subject.errors.full_messages).to eq ["File can't be blank"]
+        end
+      end
     end
   end
 

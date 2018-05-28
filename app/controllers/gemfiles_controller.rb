@@ -5,7 +5,8 @@ class GemfilesController < ApplicationController
     if @file.save
       redirect_to gemfile_path(@file.alpha_id), notice: "Gemfile successfully imported"
     else
-      redirect_to root_path, error: "There was a problem"
+      flash[:error] = @file.errors.full_messages.first
+      redirect_to root_path
     end
   end
 
@@ -20,6 +21,6 @@ class GemfilesController < ApplicationController
   private
 
   def gemfile_params
-    params.require(:gemfile).permit(:file)
+    params.permit(gemfile: [:file])[:gemfile]
   end
 end

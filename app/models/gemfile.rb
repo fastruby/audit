@@ -3,6 +3,8 @@ require "bundler/audit/scanner"
 class Gemfile < ApplicationRecord
   has_attached_file :file
 
+  validates :file, presence: true
+
   # Validate content type
   validates_attachment_content_type :file, content_type: /\Atext/
 
