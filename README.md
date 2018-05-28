@@ -1,24 +1,16 @@
-# README
+# Audit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Audit is a microsite created by OmbuLabs. It allows users to check for vulnerabilities on their Gemfiles in an efficient and secure manner. 
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+    git clone git@github.com:ombulabs/audit.git
+    cd audit
 
-* System dependencies
+## Start
 
-* Configuration
+You can start the application like this:
 
-* Database creation
+    rails server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You should be able to go to http://localhost:3000 and see the landing page.
