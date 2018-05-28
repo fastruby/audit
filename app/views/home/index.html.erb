@@ -14,7 +14,7 @@
         <div class="upload"> UPLOAD YOUR FILE: </div>
         <%= form.file_field :file, required: true %>
             <%= form.submit "Check Vulnerabilities".html_safe, id: "check_button"%>
-            <% if error = flash[:error] %>
+            <% if flash[:error].present? %>
               <span class="error">There was an error: <%= flash[:error] %></span>
             <% end %>
 
