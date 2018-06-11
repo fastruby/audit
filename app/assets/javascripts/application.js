@@ -13,3 +13,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require clipboard
+
+var url = document.location.href;
+
+new Clipboard('.btn', {
+  text: function() {
+    return url;
+  }
+});

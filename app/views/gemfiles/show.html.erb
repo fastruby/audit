@@ -12,7 +12,11 @@
           <h3 class="title" id="not_vulnerable">No vulnerabilities found!</h3>
       <% else %>
           <h3 class="title" id="vulnerable"><%= @vulnerabilities_count %> Vulnerabilities found!</h3>
-          <br/>
+
+          <!-- Copy Button -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+          <button class="btn">Share these results</button>
+
           <h4 class="section-title">Warnings:</h4>
           <%= @vulnerabilities[:warnings].join(", ") %>
           <hr/>
