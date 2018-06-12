@@ -37,3 +37,16 @@
   max-width: 680px;
   padding: 0 15px;
 }
+
+.btn {
+  background-color: #57CE81;
+  color: #272727;
+  display: block !important;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+
+.btn:hover {
+  background-color: #58ff93;
+  color: #272727;
+}
