@@ -1,39 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Audit Tool</title>
-  </head>
-
-  <body>
-
-    <div class="main-content">
-      <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
-          <h3 class="title" id="not_vulnerable">No vulnerabilities found!</h3>
-      <% else %>
-          <h3 class="title" id="vulnerable"><%= @vulnerabilities_count %> Vulnerabilities found!</h3>
-          <br/>
-          <h4 class="section-title">Warnings:</h4>
-          <%= @vulnerabilities[:warnings].join(", ") %>
-          <hr/>
-          <h4 class="section-title">Advisories:</h4>
-          <% @vulnerabilities[:advisories].each do |advisory| %>
-             <div class="advisory_title"> Vulnerable Gem: <%= advisory[0] %></div>
-             <span class="subtitle"> Name: </span><%= advisory[1][:name] %>
-              <br/>
-             <span class="subtitle"> Version: </span><%= advisory[1][:version] %>
-              <br/>
-            <span class="subtitle"> ID: </span><%= advisory[1][:id] %>
-              <br/>
-             <span class="subtitle"> URL: </span><a href= "<%=advisory[1][:url]%>" target="_blank" ><%= advisory[1][:url] %></a>
-              <br/>
-             <span class="subtitle"> Title: </span><%= advisory[1][:title] %>
-              <br/>
-             <span class="subtitle"> Description: </span><%= raw render_description(advisory[1][:description]) %>
-             <hr/>
-          <% end %>
-      <% end %>
-    </div>
-
-  </body>
-</html>
+<div class="main-content">
+  <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
+    <h3 class="title" id="not_vulnerable">No vulnerabilities found!</h3>
+  <% else %>
+    <h3 class="title" id="vulnerable"><%= @vulnerabilities_count %> Vulnerabilities found!</h3>
+    <br/>
+    <h4 class="section-title">Warnings:</h4>
+    <%= @vulnerabilities[:warnings].join(", ") %>
+    <hr/>
+    <h4 class="section-title">Advisories:</h4>
+    <% @vulnerabilities[:advisories].each do |advisory| %>
+      <div class="advisory_title"> Vulnerable Gem: <%= advisory[0] %></div>
+      <span class="subtitle"> Name: </span><%= advisory[1][:name] %>
+      <br/>
+      <span class="subtitle"> Version: </span><%= advisory[1][:version] %>
+      <br/>
+      <span class="subtitle"> ID: </span><%= advisory[1][:id] %>
+      <br/>
+      <span class="subtitle"> URL: </span><a href= "<%=advisory[1][:url]%>" target="_blank" ><%= advisory[1][:url] %></a>
+      <br/>
+      <span class="subtitle"> Title: </span><%= advisory[1][:title] %>
+      <br/>
+      <span class="subtitle"> Description: </span><%= raw render_description(advisory[1][:description]) %>
+      <hr/>
+    <% end %>
+  <% end %>
+</div>

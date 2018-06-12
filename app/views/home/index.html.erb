@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Audit Tool</title>
-  </head>
-
-  <body>
-
-    <div class="main-content">
-      <h1 class="main-title">Gemfile.lock Audit Tool</h1>
-      <p class="home-info">Upload your Gemfile.lock to find vulnerabilities in your application. This tool uses <a href="https://github.com/rubysec/bundler-audit">bundler-audit</a> to audit your Gemfile using a database of known vulnerabilities. Your privacy is important to us, we won't share this information with anyone, ever.</p>
-        <%= form_for @file, html: { multipart: true } do |form| %>
-        <div class="upload"> UPLOAD YOUR FILE: </div>
-        <%= form.file_field :file, required: true %>
-            <%= form.submit "Check Vulnerabilities".html_safe, class: "check_button"%>
-            <% if flash[:error].present? %>
-              <span class="error">There was an error: <%= flash[:error] %></span>
-            <% end %>
-
+<div class="main-content">
+  <h1 class="main-title">Gemfile.lock Audit Tool</h1>
+  <p class="home-info">Upload your Gemfile.lock to find vulnerabilities in your application. This tool uses <a href="https://github.com/rubysec/bundler-audit">bundler-audit</a> to audit your Gemfile using a database of known vulnerabilities. Your privacy is important to us, we won't share this information with anyone, ever.</p>
+    <%= form_for @file, html: { multipart: true } do |form| %>
+    <div class="upload"> UPLOAD YOUR FILE: </div>
+    <%= form.file_field :file, required: true %>
+        <%= form.submit "Check Vulnerabilities".html_safe, class: "check_button"%>
+        <% if flash[:error].present? %>
+          <span class="error">There was an error: <%= flash[:error] %></span>
         <% end %>
-      <br/>
-    </div>
 
-  </body>
-</html>
+    <% end %>
+  <br/>
+</div>
