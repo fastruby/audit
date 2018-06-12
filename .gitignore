@@ -28,3 +28,4 @@ config/database.yml
 spec/test_files
 
 .byebug_history
+.DS_Store
