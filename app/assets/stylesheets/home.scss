@@ -159,9 +159,9 @@ footer .logo-container a:visited {
   padding-right: 20px;
 }
 
-/* Check Vulnerabilities Button */
+/* Buttons */
 
-#check_button {
+.check_button {
   background-color: #57CE81;
   color: #272727;
   border: 2px solid #57CE81;
@@ -179,9 +179,23 @@ footer .logo-container a:visited {
   cursor: pointer;
 }
 
-#check_button:hover {
+.check_button:hover {
   background-color: #58ff93;
   color: #272727;
+}
+
+.check_button a {
+  color: #272727;
+  text-decoration: none;
+}
+.check_button a:hover {
+  color: #272727;
+  text-decoration: none;
+}
+
+#return {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Privacy Page */

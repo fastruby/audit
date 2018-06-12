@@ -13,7 +13,7 @@
         <%= form_for @file, html: { multipart: true } do |form| %>
         <div class="upload"> UPLOAD YOUR FILE: </div>
         <%= form.file_field :file, required: true %>
-            <%= form.submit "Check Vulnerabilities".html_safe, id: "check_button"%>
+            <%= form.submit "Check Vulnerabilities".html_safe, class: "check_button"%>
             <% if flash[:error].present? %>
               <span class="error">There was an error: <%= flash[:error] %></span>
             <% end %>
