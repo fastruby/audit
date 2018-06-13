@@ -38,6 +38,7 @@ gem "redcarpet"
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3.0'
 gem 'pg', '~> 0.8'
+gem 'clipboard-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
