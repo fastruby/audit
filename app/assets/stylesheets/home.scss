@@ -55,7 +55,7 @@ header {
 footer {
   display: block;
   background-color: #000000;
-  height: 160px;
+  height: 180px;
   width: 100%;
   padding-top: 30px;
   padding-bottom: 20px;
@@ -139,6 +139,15 @@ footer .logo-container a:visited {
   background-repeat: no-repeat;
 }
 
+#privacy {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 9px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 /* Upload Button */
 
 .upload {
@@ -150,9 +159,9 @@ footer .logo-container a:visited {
   padding-right: 20px;
 }
 
-/* Check Vulnerabilities Button */
+/* Buttons */
 
-#check_button {
+.check_button {
   background-color: #57CE81;
   color: #272727;
   border: 2px solid #57CE81;
@@ -170,7 +179,56 @@ footer .logo-container a:visited {
   cursor: pointer;
 }
 
-#check_button:hover {
+.check_button:hover {
   background-color: #58ff93;
   color: #272727;
+}
+
+.check_button a {
+  color: #272727;
+  text-decoration: none;
+}
+.check_button a:hover {
+  color: #272727;
+  text-decoration: none;
+}
+
+#return {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Privacy Page */
+
+.main_container {
+  width: 60%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+}
+
+.main_content {
+  padding: 30px;
+}
+
+.main_content h1 {
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.main_content h3 {
+  font-size: 1.45rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.main_content p {
+  font-size: 15px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }

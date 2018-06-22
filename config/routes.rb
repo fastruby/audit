@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   get 'home/index'
-
+  get 'home/privacy'
   root :to => "home#index"
+
 
   resources :gemfiles, only: [:index, :new, :create, :show]
 

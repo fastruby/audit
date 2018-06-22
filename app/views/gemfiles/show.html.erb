@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Vulnerable Gems</title>
-  </head>
-
-  <body>
-
-    <div class="main-content">
+<div class="main-content">
       <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
           <h3 class="title" id="not_vulnerable">No vulnerabilities found!</h3>
       <% else %>
@@ -38,6 +29,3 @@
           <% end %>
       <% end %>
     </div>
-
-  </body>
-</html>
