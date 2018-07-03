@@ -15,10 +15,40 @@
 //= require_tree .
 //= require clipboard
 
+
 var url = document.location.href;
 
-new Clipboard('.btn', {
+var clipboard = new Clipboard('.clipboard-btn', {
   text: function() {
+
     return url;
   }
+});
+
+$('.clipboard-btn').tooltip({
+  trigger: 'click',
+  placement: 'bottom'
+});
+
+function setTooltip(btn, message) {
+  debugger
+  $(btn).tooltip('hide')
+    .attr('data-original-title', message)
+    .tooltip('show');
+}
+
+function hideTooltip(btn) {
+  setTimeout(function() {
+    $(btn).tooltip('hide');
+  }, 1000);
+}
+
+clipboard.on('success', function(e) {
+  setTooltip(e.trigger, 'Copied!');
+  hideTooltip(e.trigger);
+});
+
+clipboard.on('error', function(e) {
+  setTooltip(e.trigger, 'Failed!');
+  hideTooltip(e.trigger);
 });
