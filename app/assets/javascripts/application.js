@@ -31,7 +31,6 @@ $('.clipboard-btn').tooltip({
 });
 
 function setTooltip(btn, message) {
-  debugger
   $(btn).tooltip('hide')
     .attr('data-original-title', message)
     .tooltip('show');
