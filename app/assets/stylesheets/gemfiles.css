@@ -41,7 +41,6 @@
 .btn {
   background-color: #57CE81;
   color: #272727;
-  display: block !important;
   margin-bottom: 1em;
   margin-top: 2em;
 }
@@ -49,4 +48,19 @@
 .btn:hover {
   background-color: #58ff93;
   color: #272727;
+}
+
+#check_another {
+  color: #272727;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  margin-bottom: 1em;
+  margin-top: 2em;
+  cursor: pointer;
 }
