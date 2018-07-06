@@ -9,7 +9,7 @@
           <button class="btn">Share these results</button>
 
           <!-- Return Button -->
-          <%= link_to 'Check another file', home_index_path, class: "btn", id: "check_another" %>
+          <%= link_to 'Check another file', home_index_path, id: "check_another" %>
 
           <h4 class="section-title">Warnings:</h4>
           <%= @vulnerabilities[:warnings].join(", ") %>
