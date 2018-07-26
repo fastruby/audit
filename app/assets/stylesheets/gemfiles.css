@@ -40,9 +40,8 @@
 
 .btn {
   font-weight: bold!important;
-  display: block!important;
   background-color: #57CE81;
-  color: #272727;
+  color: #fdfcfc;
   margin-bottom: 2em;
   margin-top: 2em;
 }
@@ -57,6 +56,8 @@
   margin-top: 10px;
   font-weight: bold;
   cursor: pointer;
+  margin-left: 15px;
+  text-decoration: underline;
 }
 
 #check_another:hover {
