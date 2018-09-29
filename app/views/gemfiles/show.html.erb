@@ -8,10 +8,12 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
           <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 
-          <button class="clipboard-btn check_button">Share these results</button>
+          <div class="call-to-actions">
+            <button class="clipboard-btn check_button">Share these results</button>
 
-          <!-- Return Button -->
-          <%= link_to 'Check another file', home_index_path, id: "check_another" %>
+            <!-- Return Button -->
+            <%= link_to 'Check another file', home_index_path, id: "check_another" %>
+          </div>
 
           <h4 class="section-title">Warnings:</h4>
           <%= @vulnerabilities[:warnings].join(", ") %>

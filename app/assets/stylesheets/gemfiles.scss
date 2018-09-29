@@ -50,6 +50,18 @@
   background-color: #58ff93;
   color: #272727;
 }
+.call-to-actions {
+  display: inline-block;
+
+  button.check_button {
+    float: left;
+  }
+
+  #check_another {
+    display: inline-block;
+    margin-top: 2.7em;
+  }
+}
 
 #check_another {
   font-size: 16px;
