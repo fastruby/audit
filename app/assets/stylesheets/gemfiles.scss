@@ -38,15 +38,41 @@
   padding: 0 15px;
 }
 
-.clipboard-btn {
+.btn {
+  font-weight: bold!important;
   background-color: #57CE81;
-  color: #272727;
-  display: block !important;
-  margin-bottom: 1em;
+  color: #fdfcfc;
+  margin-bottom: 2em;
   margin-top: 2em;
 }
 
-.clipboard-btn:hover {
+.btn:hover {
   background-color: #58ff93;
   color: #272727;
+}
+.call-to-actions {
+  display: inline-block;
+
+  button.check_button {
+    float: left;
+  }
+
+  #check_another {
+    display: inline-block;
+    margin-top: 2.7em;
+  }
+}
+
+#check_another {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 15px;
+  text-decoration: underline;
+}
+
+#check_another:hover {
+  text-decoration: none;
+  color: #F70A7C;
 }
