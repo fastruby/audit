@@ -1,0 +1,29 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.main{
+  overflow: hidden;
+}
+
+.content {
+  font-family: "Open Sans", sans-serif;
+  background-color: #fdfcfc;
+  color: #272727;
+}
+
+.main-content {
+  padding: 2em;
+}
+
+.main-title {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.2em;
+  color: #272727;
+}

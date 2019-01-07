@@ -1,0 +1,117 @@
+form{
+  text-align: center;
+}
+
+.form-error {
+  color: $grey_light;
+  margin-bottom: 1em;
+  i {
+    color: $yellow;
+  }
+}
+
+.form-success{
+  font-family: "Inconsolata", serif;
+  color: $yellow;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.file {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  height: 48px;
+  top: -7px;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.file input {
+  min-width: 36rem;
+  margin: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  height: 48px;
+  outline: none;
+  &:focus{
+    outline: none;
+  }
+}
+
+.file-custom {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  height: 48px;
+  padding: .8rem 1rem;
+  line-height: 1.5;
+  color: #555;
+  background-color: #fff;
+  box-shadow: inset 0 .2rem .4rem rgba(0,0,0,.05);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: left;
+}
+
+.file-upload {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  &:after{
+    content: " Upload File";
+  }
+}
+
+.g-recaptcha {
+  margin-bottom: 1em;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  div {
+    width: 100% !important;
+  }
+}
+
+form {
+  input, textarea {
+    padding: 0.25em;
+    padding-left: 0.5em;
+  }
+
+  textarea {
+    padding-top: 0.75em;
+  }
+}
+
+/* Buttons */
+
+.check_button {
+  display: inline;
+}
+
+//breakpoint_768px
+@media (max-width: $breakpoint_768px) {
+  .file{
+    width: 80%;
+  }
+  .file input {
+    min-width: auto;
+  }
+  .file-upload{
+    &:after{
+      content: "";
+    }
+  }
+  .check_button{
+    width: 80%;
+  }
+}
