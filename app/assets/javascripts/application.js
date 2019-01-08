@@ -81,3 +81,7 @@ $("#mobile-menu").on('click', function(e) {
 $('#menu a').on('click', function() {
   $("#navbar").removeClass("open");
 })
+// Hide check another Gemfile on home
+if( $('.main #header_vulnerabilities').length ){
+  $('body').addClass('vulnerabilities_page')
+}

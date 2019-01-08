@@ -11,6 +11,7 @@
   transition: 0.5s;
   text-decoration: none;
   border: none;
+  cursor: pointer;
   &:hover {
     background-color: $green;
     background-image: none;

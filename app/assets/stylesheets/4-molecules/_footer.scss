@@ -23,9 +23,20 @@ footer {
 		margin: auto;
 		.slogan{
 			color: $white;
+			a{
+				&:hover, &:visited, &:link{
+					color: $white;
+					text-decoration: underline;
+				}
+			}
 		}
-		a:visited {
-			color: $white;
+		.logo{
+			a{
+				&:hover, &:visited, &:link{
+					color: $white;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }

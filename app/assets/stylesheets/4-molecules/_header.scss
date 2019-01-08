@@ -75,9 +75,26 @@ header {
         &:hover{
 					color: #FFCC00
 				}
+				&.check_another{
+					display: none;
+				}
       }
     }
   }
+}
+// Hides Check another Gemfile button on results
+.vulnerabilities_page{
+	header{
+		#navbar{			
+			nav{
+				a{
+					&.check_another{
+						display: inline;
+					}
+				}
+			}
+		}
+	}
 }
 .header{
   width:100%;
@@ -137,7 +154,7 @@ header {
   font-size: 1.2em;
   color: $white;
   width: 40%;
-  margin: 2% auto 0px auto;
+  margin: 2% auto;
   text-align: center;
 }
 
