@@ -77,6 +77,12 @@ header {
 				}
 				&.check_another{
 					display: none;
+					color: #FFCC00;
+					text-decoration: underline;
+					&:hover{
+						color: #F70A7C;
+						text-decoration: none;
+					}
 				}
       }
     }
