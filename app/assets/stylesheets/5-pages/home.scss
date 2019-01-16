@@ -19,6 +19,14 @@ html {
 
 .main-content {
   padding: 2em;
+  width: 60%;
+  margin: 0 auto;
+}
+//breakpoint_768px
+@media (max-width: $breakpoint_768px) {
+  .main-content {
+    width: 100%;
+  }
 }
 
 .main-title {

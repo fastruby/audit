@@ -75,6 +75,9 @@ header {
         &:hover{
 					color: #FFCC00
 				}
+				&.home{
+					display: none;
+				}
 				&.check_another{
 					display: none;
 					color: #FFCC00;
@@ -88,13 +91,27 @@ header {
     }
   }
 }
-// Hides Check another Gemfile button on results
+// Showa Check another Gemfile button on results
 .vulnerabilities_page{
 	header{
 		#navbar{			
 			nav{
 				a{
 					&.check_another{
+						display: inline;
+					}
+				}
+			}
+		}
+	}
+}
+// Showa Check another Gemfile button on results
+.privacy_page{
+	header{
+		#navbar{			
+			nav{
+				a{
+					&.home{
 						display: inline;
 					}
 				}
@@ -112,7 +129,12 @@ header {
   background-image: image-url('header_background.jpg');
   padding: 10vh 0px 10vh 0px;
   text-align: center;
-  color: $white;
+	color: $white;
+	min-height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
   a{
     color: $yellow;
   }

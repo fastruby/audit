@@ -84,4 +84,6 @@ $('#menu a').on('click', function() {
 // Hide check another Gemfile on home
 if( $('.main #header_vulnerabilities').length ){
   $('body').addClass('vulnerabilities_page')
+}else if( $('.main #header_privacy').length ){
+  $('body').addClass('privacy_page')
 }
