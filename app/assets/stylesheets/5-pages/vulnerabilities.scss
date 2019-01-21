@@ -1,0 +1,57 @@
+#vulnerabilities-content{
+
+  .title{
+    font-weight: 400;
+    font-size: 35pt;
+  }
+  
+  .section-title {
+    margin-top: 30px;
+    color: $grey_light;
+  }
+  
+  #not_vulnerable {
+    color: #D9F1F1;
+  }
+  
+  #vulnerable {
+    color: #F70A7C;
+  }
+  
+  .advisory_title {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 17pt;
+    text-transform: uppercase;
+    color: #FFCC00
+  }
+
+  h2{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14pt;
+    text-transform: uppercase;
+  }
+
+  hr{
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0,0,0,1);
+    &:last-child{
+      border-top: none;
+    }
+  }
+  
+  .subtitle {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+
+  .advisories{
+    display: block;
+    background-color: rgb(240, 240, 240);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+}

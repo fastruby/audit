@@ -1,0 +1,107 @@
+footer {
+	background: #000;
+	color: #fff;
+	text-align: center;
+	padding-top: 10px ; /*$gutter*1.5;*/
+	padding-bottom: 10px;/*$gutter*1.5;*/
+	overflow: hidden;
+	display: block;
+  height: 11.3rem;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  left: 0;
+  bottom: 0;
+	.logo a{
+		color: $white;
+	}
+	.logo-container{
+		width: 220px;
+		margin: auto;
+		.slogan{
+			color: $white;
+			a{
+				&:hover, &:visited, &:link{
+					color: $white;
+					text-decoration: underline;
+				}
+			}
+		}
+		.logo{
+			a{
+				&:hover, &:visited, &:link{
+					color: $white;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+.logo {
+  display: block;
+  margin: 0px auto 0px auto;
+  background-image: url(/assets/isotype_vector.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 220px;
+  height: 40px;
+  font-family: "Lato", "Helvetica", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 27px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 50px;
+	background-size: auto 80%;
+	padding-top: 10px;
+	box-sizing: content-box;
+	a {
+		text-decoration: none;
+	}
+}
+.slogan {
+	font-family: $Open;
+	font-weight: 300;
+	font-size: 9px;
+	color: $yellow_ombu !important;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-top: -10px;
+	float: left;
+	margin-left: 50px;
+	text-align: left;
+	a{
+		text-decoration: underline;
+	}
+}
+.logo-ombu {
+	color: $magenta;
+}
+.txt_footer {
+	font-family: "Lato", sans-serif;
+	color: #515151;
+	font-size: 14px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	margin: 20px auto 10px auto;
+	border-top: solid 1px #515151;
+	border-bottom: solid 1px #515151;
+	padding: 10px 5px;
+	display: block;
+	width: 380px;
+	background-image: url("footer_2.png");
+	background-size: 380px 40px;
+	background-repeat: no-repeat;
+}
+#privacy {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 9px;
+  color: #fff;
+  letter-spacing: 1px;
+	text-transform: uppercase;
+}
