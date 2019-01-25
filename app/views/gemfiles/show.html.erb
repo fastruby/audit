@@ -1,9 +1,13 @@
 
-<div id="header_vulnerabilities" class="header">
+<div id="header_vulnerabilities" class="header <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>not_vulnerable<% else %>vulnerable<% end %>">
   <% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
-    <h1 class="white_title" id="not_vulnerable">No vulnerabilities found!</h1>
+  <h1 class="white_title" id="not_vulnerable">No vulnerabilities found!</h1>
+  <div class="call-to-actions">
+    <!-- Return Button -->
+    <%= link_to 'Check another file', home_index_path, id: "check_another", class: "btn-audit-link" %>
+  </div>
   <% else %>
-    <h1 class="white_title" id="vulnerable"><%= @vulnerabilities_count %> Vulnerabilities found!</h1>
+  <h1 class="white_title" id="vulnerable"><%= @vulnerabilities_count %> Vulnerabilities found!</h1>
 
   <!-- Copy Button -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
