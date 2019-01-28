@@ -135,6 +135,11 @@ header {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	&.not_vulnerable{
+		min-height: calc(100vh - 11.3rem);
+		min-height: -webkit-calc(100vh - 11.3rem);
+		min-height: -moz-calc(100vh - 11.3rem);
+	}
   a{
     color: $yellow;
   }
