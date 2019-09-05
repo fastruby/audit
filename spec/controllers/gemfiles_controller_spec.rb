@@ -11,7 +11,7 @@ RSpec.describe GemfilesController do
   end
   subject { Gemfile.create(file: file) }
 
-  describe "#show" do
+  describe "#create" do
     context "when trying to find gemfile by id" do
       it "won't find any" do
         expect do

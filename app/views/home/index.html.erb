@@ -1,19 +1,38 @@
-<div id="header_welcome" class="header">
-  <div id="text_header">
-    <h1 class="white_title">Gemfile.lock Audit Tool</h1>
-    <h2 class="red_txt">Upload your Gemfile.lock to find vulnerabilities in your application. This tool uses <a href="https://github.com/rubysec/bundler-audit">bundler-audit</a> to audit your Gemfile using a database of known vulnerabilities.</h2> 
-    <h2 class="red_txt">Your privacy is important to us, we won't share this information with anyone, ever.</h2>
+<section class="section section__full top-section" id="top">
+  <div class="container">
+    <div class="section__content">
+      <h1>Gemfile.lock Audit Tool</h1>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <p>Upload your Gemfile.lock to find vulnerabilities in your application. This tool uses <a href="https://github.com/rubysec/bundler-audit">bundler-audit</a> to audit your Gemfile using a database of known vulnerabilities.</p> 
+          <p>Your privacy is important to us, we won't share this information with anyone, ever.</p>
+        </div> 
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+          <%= render "shared/gemfile_upload_form" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= form_for @file, html: { multipart: true } do |form| %>
-    <%= form.label :file, class: "file" do %>
-      <%= form.file_field :file, required: true %>
-      <span class="file-custom">Select a Gemfile.lock file...
-      </span>
-      <span class="file-upload btn-audit"><%= fa_icon "cloud-upload" %></span>
-    <% end %>
-    <%= form.submit "Check Vulnerabilities".html_safe, class: "check_button btn-audit", disabled: true%>
-    <% if flash[:error].present? %>
-      <span class="error">There was an error: <%= flash[:error] %></span>
-    <% end %>
-  <% end %>
-</div>
+</section>
+<div id="result"></div>
+<section class="section section__full section-bottom">
+  <div class="top-top">
+    <a class="scrollto" href="#top">
+      <%= image_tag "circle-black-lg.svg" %>
+    </a>
+  </div>
+  <div class="section__bg section-bottom__bg section__bg--left">
+    <span  class="section__bg--lg"><%= image_tag "bg-branch-contactus--lg.svg" %></span>
+    <span  class="section__bg--md"><%= image_tag "bg-branch-contactus--lg.svg" %></span>
+  </div>
+  <div class="section__bg section-bottom__bg section__bg--right">
+    <span  class="section__bg--lg"><%= image_tag "bg-branch-footer2--lg.svg" %></span>
+    <span  class="section__bg--md"><%= image_tag "bg-branch-footer2--lg.svg" %></span>
+  </div>
+  <div class="section__bg section-bottom__bg section__bg--right section__bg--bottomright">
+    <span  class="section__bg--lg"><%= image_tag "bg-branch-footer--lg.svg" %></span>
+    <span  class="section__bg--md"><%= image_tag "bg-branch-footer--lg.svg" %></span>
+    <span  class="section__bg--sm"><%= image_tag "bg-branch-footer--lg.svg" %></span>
+    <span  class="section__bg--xs"><%= image_tag "bg-branch-footer--lg.svg" %></span>
+  </div>
+</section>

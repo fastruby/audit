@@ -1,45 +1,67 @@
-.btn-audit {
-  display: block;
-  background-color: #28a745;
-  background-image: linear-gradient(-180deg,#34d058,#28a745 90%);
-  color: #fff;
-  font-family: $Open;
-  font-weight: bold;
-  font-size: 1.2em;
+// Buttons
+.btn{
+  background-color: $green;
+  color: $white;
   text-align: center;
-  padding: 10px 30px;
-  transition: 0.5s;
+  padding: 1.22rem 3rem;
+  border-radius: 0;
+  @include source-code-black;
+  transition: $transition;
+  text-transform: uppercase;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: $green;
-    background-image: none;
+  overflow-wrap: break-word;
+  outline: none;
+  border: 0;
+  &:hover, &:active, &:focus{
+    background-color: darken( $green, 10% );
+    color: $white;
+    transition: $transition;
+    outline: none;
   }
-  &:disabled{
-    opacity: .5;
-    cursor: default;
-    border: none;
+  @include respond-above(sm) {
+    font-size: 1rem;
   }
-  &.yellow {
-    background-color: $yellow;
+  &.btn-readmore{
+    background-color: $white;
+    border: 1px solid $red;
     color: $red;
-    width: 50%;
-    margin-top: 30px;
-    &:hover {
-      background-color: $white;
-    }
   }
 }
-.btn-audit-link{
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 20px;
+
+.btn-link{
+  color: $black;
   text-decoration: underline;
-  &:hover {
+  transition: $transition;
+  padding: 0 0 0 3rem;
+  &:hover{
+    color: $green;
+    transition: $transition;
     text-decoration: none;
-    color: #F70A7C;
+  }
+  @include respond-above(sm) {
+    font-size: 1rem;
+  }
+  &.active{
+    color: $green;
+    text-decoration: none;
+    cursor: default;
+  }
+}
+.top-top{
+  position: absolute;
+  z-index: 9999;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    a{
+      display: block;
+    }
+}
+a{
+  color: $green;
+  text-decoration: underline;
+  &:hover{
+    color: $green;
+    text-decoration: none;
   }
 }

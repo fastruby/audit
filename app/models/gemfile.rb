@@ -65,7 +65,7 @@ class Gemfile < ApplicationRecord
       File.basename(gemfile_path)
     )
   end
-
+  
   private
 
   def gemfile_path

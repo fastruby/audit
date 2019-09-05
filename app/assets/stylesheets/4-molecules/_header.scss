@@ -1,301 +1,185 @@
 header {
-	font-family: "Open Sans", "Helvetica", Arial, sans-serif;
-	text-align: center;
-	padding: 15px 20px;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-	color: #ffffff;
+	left: 0;
+	right: 0;
+	z-index: 10000;
+	background-color: $white;
 	position: absolute;
 	top: 0;
+	height: 80px;
+	padding: 26px 50px;
+	box-shadow: 0 1px 11.5px 0 rgba($black, 0.18);
+	@include respond-above(sm) {
+  	padding: 50px;
+		height: 160px;
+		background-color: transparent;
+		box-shadow: none;
+		.navbar-toggler{
+  		display: none;
+  	}
+	}
+	@include respond-above(lg) {
+		padding: 50px 150px;
+	}
 	&.fixed{
-		background-image: image-url('header_background.jpg');
 		position: fixed;
+		box-shadow: 0 1px 11.5px 0 rgba(0, 0, 0, 0.18);
 		animation: showHeader .5s;
+		background-color: $white;
+		@include respond-above(sm) {
+			padding-top: 17px;
+	    padding-bottom: 19px;
+			height: 100px;
+		}
 		@keyframes showHeader {
 			from {top: -100px;}
 			to {top: 0px;}
 		}
 	}
-  #navbar{
-		overflow: hidden;
-    .logo-container{float: left;}
-		#mobile-menu{
-			display: none;
-			position: relative;
-			z-index: 10;
-			width: 30px;
-			height: 20px;
-			margin: 20px 10px;
-			position: relative;
-			-webkit-transform: rotate(0deg);
-			-moz-transform: rotate(0deg);
-			-o-transform: rotate(0deg);
+	&.open{
+		&.fixed{
+			@include respond-below(sm) {
+	  			animation: none;
+	  		}
+		}
+	}
+	.navbar-nav{
+		float: right;
+		.btn-link{
+			margin-top: 1rem;
+			display: inline-block;
+			@include respond-above(sm) {
+		  		padding: 0 2rem 0 0;
+		  	}
+		  	@include respond-above(md) {
+		  		padding: 0 3rem 0 0;
+		  	}
+		}
+	}
+	.navbar-brand{
+		padding: 0;
+  	.navbar-brand__name{
+  		float: left;
+  		display: none;
+	  	@include respond-above(md) {
+	  		display: block;
+	  	}
+	  	a{
+				text-align: left;
+				text-decoration: none;
+		  	&.navbar-brand__fastruby{
+		  		color: $light-grey;
+		  		display: block;
+		  		font-size: 1rem;
+		  		line-height: 1.7;
+					margin-top: 5px;
+					padding-left: 1rem;
+		  	}
+		  	&.navbar-brand__audittool{
+		  		color: $black;
+		  		display: block;
+		  		font-size: 2rem;
+		  		padding-left: 1rem;
+		  	}
+			}
+  	}
+  	.navbar-brand__logo{
+  		float: left;
+  		a{		
+				height: 28px;
+				margin-left: -30px;
+		  	display: flex;
+		  	text-decoration: none;
+		  	@include respond-above(sm) {
+		  		height: 66px;
+		  		margin-left: 0;
+		  	}
+  		}
+  	}
+	}
+	.navbar-collapse{
+		@include respond-below(sm) {
+  		&.collapse.in, &.collapsing{
+  			position: absolute;
+		    width: 100vw;
+		    left: -50px;
+		    height: 100vh;
+		    background-color: $white;
+		    top: 53px;
+		    .navbar-nav{
+		    	float: none;
+			    width: 200px;
+			    margin: 3rem auto;
+		    	a{
+		    		display: block;
+		    		&.btn-link{
+		    			padding: 1rem 0;
+		    		}
+		    		&.btn{
+		    			margin-top: 1rem;
+		    		}
+		    	}
+		    }
+  		}
+		}
+	}
+	.navbar-toggler{
+		float: right;
+		width: 30px;
+		height: 20px;
+		position: relative;
+		transform: rotate(0deg);
+		transition: $transition;
+		cursor: pointer;
+		border: none;
+		margin-top: 5px;
+		outline: none;
+		background: transparent;
+		span{
+			display: block;
+			position: absolute;
+			height: 4px;
+			width: 100%;
+			background: $red;
+			opacity: 1;
+			left: 0;
 			transform: rotate(0deg);
-			-webkit-transition: .5s ease-in-out;
-			-moz-transition: .5s ease-in-out;
-			-o-transition: .5s ease-in-out;
-			transition: .5s ease-in-out;
-			cursor: pointer;
+			transition: $transition;
+			&:nth-child(1) {
+			  top: 0px;
+			}
+			&:nth-child(2), &:nth-child(3) {
+			  top: 8px;
+			}
+			&:nth-child(4) {
+			  top: 16px;
+			}
+		}
+		&.open{
 			span{
-				display: block;
-				position: absolute;
-				height: 3px;
-				width: 100%;
-				background: #fff;
-				opacity: 1;
-				left: 0;
-				-webkit-transform: rotate(0deg);
-				-moz-transform: rotate(0deg);
-				-o-transform: rotate(0deg);
-				transform: rotate(0deg);
-				-webkit-transition: .25s ease-in-out;
-				-moz-transition: .25s ease-in-out;
-				-o-transition: .25s ease-in-out;
-				transition: .25s ease-in-out;
 				&:nth-child(1) {
-					top: 0px;
+				  top: 8px;
+				  width: 0%;
+				  left: 50%;
 				}
-				&:nth-child(2), &:nth-child(3) {
-					top: 8px;
+				&:nth-child(2) {
+				  -webkit-transform: rotate(45deg);
+				  -moz-transform: rotate(45deg);
+				  -o-transform: rotate(45deg);
+				  transform: rotate(45deg);
+				}
+				&:nth-child(3) {
+				  -webkit-transform: rotate(-45deg);
+				  -moz-transform: rotate(-45deg);
+				  -o-transform: rotate(-45deg);
+				  transform: rotate(-45deg);
 				}
 				&:nth-child(4) {
-					top: 16px;
-				}
-			}
-		}
-    nav{
-      float: right;
-      padding: 25px;
-      a{
-				text-decoration: none;
-        color: #ffffff;
-        font-size: 16px;
-        padding: 0px 8px;
-        &:hover{
-					color: #FFCC00
-				}
-				&.home{
-					display: none;
-				}
-				&.check_another{
-					display: none;
-					color: #FFCC00;
-					text-decoration: underline;
-					&:hover{
-						color: #F70A7C;
-						text-decoration: none;
-					}
-				}
-      }
-    }
-  }
-}
-// Showa Check another Gemfile button on results
-.vulnerabilities_page{
-	header{
-		#navbar{			
-			nav{
-				a{
-					&.check_another{
-						display: inline;
-					}
+				  top: 15px;
+				  width: 0%;
+				  left: 50%;
 				}
 			}
 		}
 	}
 }
-// Showa Check another Gemfile button on results
-.privacy_page{
-	header{
-		#navbar{			
-			nav{
-				a{
-					&.home{
-						display: inline;
-					}
-				}
-			}
-		}
-	}
-}
-.header{
-  width:100%;
-  overflow: auto;
-  display:block;
-  margin:0 auto;
-  background-size: cover;
-  background-position: center;
-  background-image: image-url('header_background.jpg');
-  padding: 10vh 0px 10vh 0px;
-  text-align: center;
-	color: $white;
-	min-height: 300px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	&.not_vulnerable{
-		min-height: calc(100vh - 11.3rem);
-		min-height: -webkit-calc(100vh - 11.3rem);
-		min-height: -moz-calc(100vh - 11.3rem);
-	}
-  a{
-    color: $yellow;
-  }
-}
-#header_welcome {
-  min-height: calc(100vh - 11.3rem);
-}
-#header_vulnerabilities {
 
-  .btn {
-    font-weight: bold!important;
-    background-color: #57CE81;
-    color: #fdfcfc;
-    margin-bottom: 2em;
-    margin-top: 2em;
-  }
-  
-  .btn:hover {
-    background-color: #58ff93;
-    color: #272727;
-  }
-  .call-to-actions {
-    display: inline-block;
-  
-    .check_button {
-      float: left;
-    }
-  }
-}
-#text_header {
-  display: block;
-  width: 80%;
-  margin: 10px auto 0px auto;
-}
-.white_title {
-  font-family: $Open;
-  font-weight: bold;
-  color: $white;
-  text-align: center;
-  font-size: 2.5em; margin-top: 1em; margin-bottom: 1em;
-}
-
-.red_txt {
-  font-family: $Inconsolata;
-  font-size: 1.2em;
-  color: $white;
-  width: 40%;
-  margin: 2% auto;
-  text-align: center;
-}
-
-//breakpoint_500px
-@media (max-width: $breakpoint_500px) {
-
-  #text_header {
-    width: 80%;
-  }
-  .white_title {font-size: 1.5em !important;}
-  .red_txt {
-    font-size: 1em;
-    width: 80%  !important;
-    margin-top: 20px;
-  }
-}
-
-//breakpoint_768px
-@media (max-width: $breakpoint_768px) {
-  header{
-		#navbar{
-			#mobile-menu{
-				display: block;
-			}
-			nav{
-				position: absolute;
-				top: 0;
-				left: -100vw;
-				width: 100vw;
-				padding: 0;
-				height: 100vh;
-				transition: all 0.2s ease-in;
-				position: fixed;
-				overflow: hidden;
-				padding: 80px 0 0 0px;
-				a{
-					display: block;
-					padding: 10px 0;
-					text-align: left;
-					&:hover{
-						color: #000;
-					}
-				}
-			}
-			&.open{
-				#mobile-menu{
-					span{
-						background: #000;
-						&:nth-child(1) {
-							top: 18px;
-							width: 0%;
-							left: 50%;
-						}
-						&:nth-child(2) {
-							-webkit-transform: rotate(45deg);
-							-moz-transform: rotate(45deg);
-							-o-transform: rotate(45deg);
-							transform: rotate(45deg);
-						}
-						&:nth-child(3) {
-							-webkit-transform: rotate(-45deg);
-							-moz-transform: rotate(-45deg);
-							-o-transform: rotate(-45deg);
-							transform: rotate(-45deg);
-						}
-						&:nth-child(4) {
-							top: 18px;
-							width: 0%;
-							left: 50%;
-						}
-					}
-				}
-				nav{
-					background: #fdca31;
-					transition: all 0.2s ease-in;
-					left: 0;
-					padding: 80px 0 0 33px;
-				}
-			}
-		}
-	}
-  #header_vulnerabilities{
-    .call-to-actions {
-    
-      .check_button {
-        float: none;
-      }
-    }
-    #check_another {
-      margin-left: 0px;
-    }
-  }
-  #text_header {
-    width: 80%;
-  }
-  .white_title {
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-  .red_txt {
-    font-size: 1em;
-    width: 80%;
-    margin-top: 20px;
-  }
-  .CTA {
-    width: 50%;
-    &.yellow {
-      padding: 10px;
-    }
-  } 
-}

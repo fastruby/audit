@@ -37,6 +37,14 @@ gem "redcarpet"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Jquery
+gem 'jquery-rails'
+# Bootstrap
+gem 'bootstrap-sass'
+# Popper
+gem 'popper_js', '~> 1.14.5'
+# gem 'material_design_lite-sass'
+
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3.0'
 gem 'pg', '~> 0.8'
