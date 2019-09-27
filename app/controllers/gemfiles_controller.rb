@@ -1,7 +1,7 @@
 class GemfilesController < ApplicationController
   def create
     @file = Gemfile.new(gemfile_params)
-    
+
     respond_to do |format|
       if @file.save
         render_vulnerabilities(@file)
@@ -26,7 +26,7 @@ class GemfilesController < ApplicationController
   def render_vulnerabilities(file)
     @renderer = Redcarpet::Render::HTML.new(prettify: true)
     @markdown = Redcarpet::Markdown.new(@renderer, fenced_code_blocks: true)
-    @vulnerabilities = @file.check_with_bundler_audit
+    @vulnerabilities = file.check_with_bundler_audit
     @vulnerabilities_count = vulnerabilities_count(@vulnerabilities)
   end
 
