@@ -15,6 +15,14 @@ class GemfilesController < ApplicationController
   def show
     @file = Gemfile.find_by!(alpha_id: params[:id])
     render_vulnerabilities(@file)
+
+    respond_to do |format|
+      format.pdf do
+        render pdf: "vulnerabilities_list",
+          template: "gemfiles/show.html.erb",
+          layout: 'pdf.html'
+      end
+    end
   end
 
   private
