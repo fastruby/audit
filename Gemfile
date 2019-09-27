@@ -37,6 +37,9 @@ gem "redcarpet"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "wicked_pdf", "1.4.0"
+gem "wkhtmltopdf-binary", "0.12.3.1"
+
 # Jquery
 gem 'jquery-rails'
 # Bootstrap
