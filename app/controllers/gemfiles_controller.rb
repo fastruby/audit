@@ -17,6 +17,7 @@ class GemfilesController < ApplicationController
     render_vulnerabilities(@file)
 
     respond_to do |format|
+      format.html
       format.pdf do
         render pdf: "vulnerabilities_list",
           template: "gemfiles/show.html.erb",
