@@ -1,1 +1,18 @@
-<%= render "vulnerabilities_list" %>
+<% content_for :script do %>
+  <script>
+    $('html, body').animate({
+      scrollTop: $('#result').offset().top - 100
+    }, 300);
+  </script>
+<% end %>
+
+<%= render "shared/gemfile_upload_section", remote: false %>
+
+<% if @vulnerabilities.present? %>
+  <div id="result">
+    <%= render "vulnerabilities_list" %>
+    <div id="bottom-bar">
+      <%= render "bottom-bar" %>
+    </div>
+  </div>
+<% end %>

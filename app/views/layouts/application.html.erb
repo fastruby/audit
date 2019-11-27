@@ -47,11 +47,11 @@
         </nav>
       </header>
       <%= yield %>
-      <div id="bottom-bar"></div>
     </div>
 
     <%= render "shared/footer" %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': true %>
+    <%= yield :script %>
   </body>
 </html>

@@ -5,10 +5,6 @@
     <div class="section__content">
       <h1>Hurrah!</h1>
       <h1 class="section-hurrah--results">Your file has</br>0 vulnerabilities</h1>
-      <p>Try checking another file!</p>
-      <div class="row">
-        <%= render "shared/gemfile_upload_form" %>
-      </div>
     </div>
   </div>
   <div class="section-hurrah--bg">
@@ -35,7 +31,7 @@
         <!-- warnings -->
         <div class="results warnings">
           <% if @vulnerabilities[:warnings].present? %>
-            <div class="results-title warnings-title">        
+            <div class="results-title warnings-title">
               <h1>Warnings</h1>
               <span class="results-length"><%= @vulnerabilities[:warnings].length %></span>
             </div>
@@ -43,20 +39,20 @@
               <div class="results-content warnings-content">
                 <%= warning %>
               </div>
-            <% end %>   
+            <% end %>
           <% end %>
         </div>
         <!-- end warnings -->
         <!-- Advisories -->
         <div class="results warnings">
           <% if @vulnerabilities[:advisories].present? %>
-          <div class="results-title advisories-title">        
+          <div class="results-title advisories-title">
             <h1>Advisories</h1>
             <span class="results-length"><%= @vulnerabilities[:advisories].length %></span>
           </div>
             <% @vulnerabilities[:advisories].each_with_index do |advisory, index| %>
             <div class="results-content advisories-content">
-              <div class="advisory-gem"> 
+              <div class="advisory-gem">
                   <h2>Vulnerable Gem: <%= advisory[0] %></h2>
               </div>
 
@@ -80,7 +76,7 @@
                 <div class="col-xs-6 col-sm-3">
                   <a class="btn" href="<%= advisory[1][:url] %>" target="_blank">Link</a>
                 </div>
-                
+
               </div>
 
               <div class="advisory-title">

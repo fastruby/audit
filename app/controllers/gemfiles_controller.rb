@@ -4,15 +4,20 @@ class GemfilesController < ApplicationController
 
     respond_to do |format|
       if @file.save
-        render_vulnerabilities(@file)
-        format.js
+        format.html { redirect_to gemfile_path(id: @file.alpha_id) }
+        format.js { render_vulnerabilities(@file) }
       else
+        format.html do
+          @error = @file.errors.full_messages.join('. ')
+          render "show"
+        end
         format.js
       end
     end
   end
 
   def show
+    @new_file = Gemfile.new
     @file = Gemfile.find_by!(alpha_id: params[:id])
     render_vulnerabilities(@file)
 

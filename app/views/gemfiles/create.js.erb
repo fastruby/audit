@@ -1,6 +1,6 @@
 <% if @file.errors.present? %>
 	// Shows errors
-	$('.error').html('<div class="form-error"><%= @file.errors.full_messages.second %></div>')
+	$('.error').html('<div class="form-error"><%= @file.errors.full_messages.join('. ') %></div>')
 <% else %>
 	// Renders the results
 	$('#result').html('<%= escape_javascript(render partial: 'vulnerabilities_list') %>')
