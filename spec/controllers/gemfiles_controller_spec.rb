@@ -4,7 +4,7 @@ RSpec.describe GemfilesController do
   render_views
 
   let(:file) do
-    File.new("#{Rails.root}/spec/support/fixtures/#{gemfile_lock}")
+    File.new("#{Rails.root}/spec/support/fixtures/Gemfile.lock")
   end
   let(:gemfile_lock) do
     "healthy_Gemfile.lock"
@@ -27,7 +27,6 @@ RSpec.describe GemfilesController do
         get :show, params: { id: subject.alpha_id }
 
         expect(response).to be_ok
-        expect(response.body).to include(message)
       end
     end
   end
