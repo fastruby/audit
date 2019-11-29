@@ -31,25 +31,25 @@
   <% @vulnerabilities[:advisories].each do |advisory| %>
   <span class="advisories">
     <div class="advisory_title"> Vulnerable Gem:
-      <%= advisory[0] %>
+      <%= advisory[:label] %>
     </div>
     <span class="subtitle"> Name: </span>
-    <%= advisory[1][:name] %>
+    <%= advisory[:name] %>
     <br />
     <span class="subtitle"> Version: </span>
-    <%= advisory[1][:version] %>
+    <%= advisory[:version] %>
     <br />
     <span class="subtitle"> ID: </span>
-    <%= advisory[1][:id] %>
+    <%= advisory[:id] %>
     <br />
-    <span class="subtitle"> URL: </span><a href="<%=advisory[1][:url]%>" target="_blank">
+    <span class="subtitle"> URL: </span><a href="<%=advisory[:url]%>" target="_blank">
       Link</a>
     <br />
     <span class="subtitle"> Title: </span>
-    <%= advisory[1][:title] %>
+    <%= advisory[:title] %>
     <br />
     <span class="subtitle"> Description: </span>
-    <%= raw render_description(advisory[1][:description]) %>
+    <%= raw render_description(advisory[:description]) %>
   </span>
   <% end %>
 <% end %>
