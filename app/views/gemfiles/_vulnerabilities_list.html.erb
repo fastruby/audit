@@ -53,40 +53,40 @@
             <% @vulnerabilities[:advisories].each_with_index do |advisory, index| %>
             <div class="results-content advisories-content">
               <div class="advisory-gem">
-                  <h2>Vulnerable Gem: <%= advisory[0] %></h2>
+                  <h2>Vulnerable Gem: <%= advisory[:label] %></h2>
               </div>
 
               <div class="row advisory-info">
 
                 <div class="col-xs-6 col-sm-3">
                   <p class="advisory-info__label">Name:</p>
-                  <p><%= advisory[1][:name] %></p>
+                  <p><%= advisory[:name] %></p>
                 </div>
 
                 <div class="col-xs-6 col-sm-3">
                   <p class="advisory-info__label">Version:</p>
-                  <p><%= advisory[1][:version] %></p>
+                  <p><%= advisory[:version] %></p>
                 </div>
 
                 <div class="col-xs-6 col-sm-3">
                   <p class="advisory-info__label">ID:</p>
-                  <p><%= advisory[1][:id] %></p>
+                  <p><%= advisory[:id] %></p>
                 </div>
 
                 <div class="col-xs-6 col-sm-3">
-                  <a class="btn" href="<%= advisory[1][:url] %>" target="_blank">Link</a>
+                  <a class="btn" href="<%= advisory[:url] %>" target="_blank">Link</a>
                 </div>
 
               </div>
 
               <div class="advisory-title">
-                <h2><%= advisory[1][:title] %></h2>
+                <h2><%= advisory[:title] %></h2>
               </div>
 
               <div class="advisory-description collapse" id="collapse<%= index %>">
                 <div class="advisory-description-content">
                   <h2>Description:</h2>
-                  <%= raw advisory[1][:description] %>
+                  <%= raw advisory[:description] %>
                 </div>
               </div>
 
