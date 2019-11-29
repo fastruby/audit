@@ -15,35 +15,27 @@ class Gemfile < ApplicationRecord
 
   before_validation :generate_alpha_id, on: :create
 
-  after_post_process :check_with_bundler_audit
   # Explicitly do not validate
   # do_not_validate_attachment_file_type :avatar
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
 
-  DEFAULT = {
-    warnings: [], advisories: {}
-  }
-
   def check_with_bundler_audit
-    return DEFAULT if gemfile_path.blank?
-    return @result if @result
-
-    @result = DEFAULT
+    @result = { warnings: [], advisories: [] }
 
     scanner.scan do |result|
-      vulnerable = true
       case result
       when Bundler::Audit::Scanner::InsecureSource
         @result[:warnings] << "Insecure Source URI found: #{result.source}"
       when Bundler::Audit::Scanner::UnpatchedGem
-        @result[:advisories]["#{result.gem.name}@#{result.gem.version.to_s}"] = {
-           name: result.gem.name,
-           version: result.gem.version.to_s,
-           id: result.advisory.id,
-           url: result.advisory.url,
-           title: result.advisory.title,
-           description: result.advisory.description
-         }
+        @result[:advisories] << {
+          label: "#{result.gem.name}@#{result.gem.version.to_s}",
+          name: result.gem.name,
+          version: result.gem.version.to_s,
+          id: result.advisory.id,
+          url: result.advisory.url,
+          title: result.advisory.title,
+          description: result.advisory.description
+        }
       end
     end
 
@@ -69,9 +61,7 @@ class Gemfile < ApplicationRecord
   private
 
   def gemfile_path
-    return if file.queued_for_write[:original].blank?
-
-    file.queued_for_write[:original].path
+    file.path
   end
 
   def generate_alpha_id
