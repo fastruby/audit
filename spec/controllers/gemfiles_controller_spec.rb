@@ -6,9 +6,6 @@ RSpec.describe GemfilesController do
   let(:file) do
     File.new("#{Rails.root}/spec/support/fixtures/Gemfile.lock")
   end
-  let(:gemfile_lock) do
-    "healthy_Gemfile.lock"
-  end
   subject { Gemfile.create(file: file) }
 
   describe "#show" do
