@@ -8,9 +8,15 @@
       }
     }
     &.top-section{
+      margin-bottom: 40px;
       padding: 3rem 2rem 0 2rem;
+      min-height: 740px;
+      @include respond-above(xs) {
+        min-height: 700px;
+      }
       @include respond-above(sm) {
         padding: 5rem 2rem 0 2rem;
+        min-height: 650px;
       }
     }
     &.section-hurrah{
