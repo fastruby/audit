@@ -8,17 +8,17 @@
           <p>Your privacy is important to us, we won't share this information with anyone, ever.</p>
         </div>
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-          <%= form_for @new_file || @file, html: { multipart: true }, remote: remote do |form| %>
+          <%= form_for @new_file || @file, html: { multipart: true } do |form| %>
             <%= form.label :file, class: "file" do %>
               <%= form.file_field :file, required: true %>
               <span class="file-custom">Select a Gemfile.lock file...</span>
-              <span class="file-upload btn btn-primary">Upload File</span>
+              <span class="file-upload btn btn-primary">Check File</span>
             <% end %>
             <%= form.submit "Check file".html_safe, class: "check_button btn btn-primary", disabled: true%>
           <% end %>
           <div class="col-xs-12 col-md-6 col-md-offset-3 error">
-            <% if @error.present? %>
-              <div class="form-error"><%= @error %></div>
+            <% if flash[:error].present? %>
+              <div class="form-error"><%= flash[:error] %></div>
             <% end %>
           </div>
         </div>

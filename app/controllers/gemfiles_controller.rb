@@ -5,13 +5,11 @@ class GemfilesController < ApplicationController
     respond_to do |format|
       if @file.save
         format.html { redirect_to gemfile_path(id: @file.alpha_id) }
-        format.js { render_vulnerabilities(@file) }
       else
         format.html do
-          @error = @file.errors.full_messages.join('. ')
-          render "show"
+          flash[:error] = @file.errors.full_messages.join('. ')
+          redirect_to root_path
         end
-        format.js
       end
     end
   end
