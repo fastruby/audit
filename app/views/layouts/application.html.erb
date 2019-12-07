@@ -4,11 +4,11 @@
     <title>Audit Tool</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= render "home/google_analytics" %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body class="<%= controller_name %>-<%= action_name %>">
@@ -50,8 +50,6 @@
     </div>
 
     <%= render "shared/footer" %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': true %>
     <%= yield :script %>
   </body>
 </html>
