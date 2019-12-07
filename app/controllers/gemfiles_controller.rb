@@ -23,8 +23,8 @@ class GemfilesController < ApplicationController
       format.html
       format.pdf do
         render pdf: "vulnerabilities_list",
-          template: "gemfiles/show.html.erb",
-          layout: 'pdf.html'
+               template: "gemfiles/show.html.erb",
+               layout: 'pdf.html'
       end
     end
   end
