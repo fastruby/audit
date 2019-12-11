@@ -20,8 +20,6 @@ $(document).on('turbolinks:load', function() {
 
     var topSectionHeight = $('.top-section').outerHeight() / 2;
     var scrollTop = $(document).scrollTop();
-    var scrollHeight = $(window).height();
-    var scrollPosition = scrollTop + scrollHeight;
 
     if(scrollTop >= topSectionHeight){
       $('header').addClass('fixed');

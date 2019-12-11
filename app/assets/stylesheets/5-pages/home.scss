@@ -131,13 +131,19 @@
       }
     }
     &.section-results{
-      padding: 4rem 1rem 0;
+      padding: 1rem 1rem 0;
+      @include respond-above(xs) {
+        padding: 4rem 1rem 0;
+      }
       @include respond-above(sm) {
           padding: 1rem;
       }
       .section__content{
         .results{
-          margin-bottom: 4rem;
+          margin-bottom: 2rem;
+          @include respond-above(xs) {
+            margin-bottom: 4rem;
+          }
           .results-title{
             display: flex;
             justify-content: center;
