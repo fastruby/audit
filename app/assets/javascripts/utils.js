@@ -10,39 +10,16 @@ $(document).on('turbolinks:load', function() {
     }, 800);
 
   });
+
+  $('.results-content').each(function(e){
+		
+		var advisoryDescriptionHeight = $('.advisory-description', this).outerHeight();
+		var advisoryDescriptionContentHeight = $('.advisory-description .advisory-description-content', this).outerHeight();
+		var collapseButton = $('.btn-readmore', this);
+
+		if(advisoryDescriptionHeight >= advisoryDescriptionContentHeight){
+			collapseButton.hide();
+		}
+  })
+  
 });
-// var url = document.location.href;
-// 
-// var clipboard = new Clipboard('.clipboard-btn', {
-//   text: function() {
-// 
-//     return url;
-//   }
-// });
-// 
-// $('.clipboard-btn').tooltip({
-//   trigger: 'click',
-//   placement: 'bottom'
-// });
-// 
-// function setTooltip(btn, message) {
-//   $(btn).tooltip('hide')
-//   .attr('data-original-title', message)
-//   .tooltip('show');
-// }
-// 
-// function hideTooltip(btn) {
-//   setTimeout(function() {
-//     $(btn).tooltip('hide');
-//   }, 1000);
-// }
-// 
-// clipboard.on('success', function(e) {
-//   setTooltip(e.trigger, 'Copied!');
-//   hideTooltip(e.trigger);
-// });
-// 
-// clipboard.on('error', function(e) {
-//   setTooltip(e.trigger, 'Failed!');
-//   hideTooltip(e.trigger);
-// });
