@@ -16,11 +16,9 @@
             <% end %>
             <%= form.submit "Check file".html_safe, class: "check_button btn btn-primary", disabled: true%>
           <% end %>
-          <div class="col-xs-12 col-md-6 col-md-offset-3 error">
-            <% if flash[:error].present? %>
-              <div class="form-error"><%= flash[:error] %></div>
-            <% end %>
-          </div>
+          <% if flash[:error].present? %>
+            <div class="form-error"><%= flash[:error] %></div>
+          <% end %>
         </div>
       </div>
     </div>
