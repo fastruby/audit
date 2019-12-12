@@ -1,0 +1,107 @@
+<!-- 0 vulnerabilities -->
+<% if @vulnerabilities[:warnings].empty? && @vulnerabilities[:advisories].empty? %>
+<section class="section section-hurrah">
+  <div class="container">
+    <div class="section__content">
+      <h1>Hurrah!</h1>
+      <h1 class="section-hurrah--results">Your file has</br>0 vulnerabilities</h1>
+    </div>
+  </div>
+  <div class="section-hurrah--bg">
+    <div class="section-hurrah--bg-left"></div>
+    <div class="section-hurrah--bg-right"></div>
+  </div>
+</section>
+<!-- has vulnerabilities -->
+<% else %>
+<section class="section section-result">
+  <div class="container">
+    <div class="section__content">
+      <h1><%= @vulnerabilities_count %> Vulnerabilities</br>found on your file</h1>
+    </div>
+  </div>
+  <div class="section__bg section__bg--left">
+    <span class=""><%= image_tag "trails-results.svg" %></span>
+  </div>
+</section>
+<section class="section section-results">
+  <div class="container">
+    <div class="row">
+      <div class="section__content col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+        <!-- warnings -->
+        <div class="results warnings">
+          <% if @vulnerabilities[:warnings].present? %>
+            <div class="results-title warnings-title">
+              <h1>Warnings</h1>
+              <span class="results-length"><%= @vulnerabilities[:warnings].length %></span>
+            </div>
+            <% @vulnerabilities[:warnings].each do |warning| %>
+              <div class="results-content warnings-content">
+                <%= warning %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- end warnings -->
+        <!-- Advisories -->
+        <div class="results warnings">
+          <% if @vulnerabilities[:advisories].present? %>
+          <div class="results-title advisories-title">
+            <h1>Advisories</h1>
+            <span class="results-length"><%= @vulnerabilities[:advisories].length %></span>
+          </div>
+            <% @vulnerabilities[:advisories].each_with_index do |advisory, index| %>
+            <div class="results-content advisories-content">
+              <div class="advisory-gem">
+                  <h2>Vulnerable Gem: <%= advisory[:label] %></h2>
+              </div>
+
+              <div class="row advisory-info">
+
+                <div class="col-xs-6 col-sm-3">
+                  <p class="advisory-info__label">Name:</p>
+                  <p><%= advisory[:name] %></p>
+                </div>
+
+                <div class="col-xs-6 col-sm-3">
+                  <p class="advisory-info__label">Version:</p>
+                  <p><%= advisory[:version] %></p>
+                </div>
+
+                <div class="col-xs-6 col-sm-3">
+                  <p class="advisory-info__label">ID:</p>
+                  <p><%= advisory[:id] %></p>
+                </div>
+
+                <div class="col-xs-6 col-sm-3">
+                  <a class="btn" href="<%= advisory[:url] %>" target="_blank">Link</a>
+                </div>
+
+              </div>
+
+              <div class="advisory-title">
+                <h2><%= advisory[:title] %></h2>
+              </div>
+
+              <div class="advisory-description collapse" id="collapse<%= index %>">
+                <div class="advisory-description-content">
+                  <h2>Description:</h2>
+                  <%= raw render_description(advisory[:description]) %>
+                </div>
+              </div>
+
+              <button class="btn btn-readmore" type="button" data-toggle="collapse" data-target="#collapse<%= index %>" aria-expanded="false" aria-controls="collapse<%= index %>"></button>
+
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- End Advisories -->
+      </div>
+    </div>
+  </div>
+</section>
+<div id="bottom-bar">
+  <%= render "bottom-bar" %>
+</div>
+<% end %>

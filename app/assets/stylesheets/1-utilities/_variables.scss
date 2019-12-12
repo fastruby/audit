@@ -1,16 +1,34 @@
-// Colors
-$black: #000000;
-$white: #ffffff;
-$red: #ef201b;
-$yellow: #fdca31;
+// Old Colors
 $yellow_ombu: #ffcc00;
-$grey: #29292c;
 $grey_medium: #323235;
 $grey_light: #b2b2bc;
-$green: #33E46D;
 $magenta: #ec037c;
+
+// Colors
+$green_light: #b5e0c3;
+$magenta: #ec037c;
+
+// New Colors
+$black: #222222;
+$white: #f8f8f8;
+$red: #ff0000;
+$yellow: #fdca31;
+$green: #00d242;
+$grey: #323235;
+$light-grey: #dadada;
+$lighter-grey: #EAEAEA;
+
+// Measurements
+$image_isotype_height: 70px;
+
+// Typography:
+$font-source-code: "Source Code Pro", monospace;
+
+// Transition:
+$transition: all .2s ease-in;
 
 // Breakpoint
 $breakpoint_500px: 500px;
 $breakpoint_768px: 768px;
 $breakpoint_960px: 960px;
+
