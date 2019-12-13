@@ -1,0 +1,38 @@
+#bottom-bar{
+	left: 0;
+	right: 0;
+	z-index: 10000;
+	position: relative;
+	bottom: 0;
+	height: 110px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 0;
+	@include respond-above(xs) {
+		position: absolute;
+		bottom: -100vh;
+		padding: 2rem 4rem;
+		justify-content: flex-end;
+		height: 182px;
+	}
+	@include respond-above(sm) {
+  	align-items: center;
+  	height: 150px;
+  	padding: 0 4rem;
+  }
+	.file-custom{
+		background: $white;
+	}
+	&.fixed{
+		position: fixed;
+		animation: showBottomBar .5s;
+		bottom: 0;
+		@keyframes showBottomBar {
+			from {bottom: -100vh;}
+			to {bottom: 0;}
+		}
+	}
+}

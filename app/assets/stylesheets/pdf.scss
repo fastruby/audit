@@ -1,0 +1,157 @@
+// Bootstrap
+@import "bootstrap";
+
+// 0-font awesome
+@import "font-awesome";
+
+// 1-utilities
+@import "1-utilities/reset";
+@import "1-utilities/breakpoints";
+@import "1-utilities/variables";
+
+// 2-quarks
+@import "2-quarks/typography";
+
+// 4-molecules
+@import "4-molecules/sections";
+@import "4-molecules/buttons"; 
+@import "4-molecules/header"; 
+
+// 5-pages
+@import "5-pages/home";
+@import "5-pages/vulnerabilities";
+
+body{
+  padding: 0;
+  h1{
+    letter-spacing: 0;
+    margin: 0;
+  }
+  p{
+    margin: 0;
+  }
+
+  header{
+    position: block;
+    height: 120px;
+    box-shadow: none;
+    .navbar-brand {
+      .navbar-brand__name{
+        display: block;
+      }
+      .navbar-brand__logo{
+        img{
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+    
+  .top-section{
+    display: none;
+  }
+
+  .section-result{
+    background: $grey_light;
+    color: $white;
+    padding-top: 195px;
+    img{
+      display: none;
+    }
+  }
+
+  .section-results{
+    .results-title{
+      font-weight: 100;
+      height: 50px;
+      h1{
+        float: left;
+      }
+      .results-length{
+        float: right;
+      }
+      &.warnings-title{
+        h1{
+          color: $yellow;
+        }
+        .results-length{
+          background-color: $yellow;
+        }
+      }
+      &.advisories-title{
+        h1{
+          color: $red;
+        }
+        .results-length{
+          background-color: $red;
+        }
+      }
+      .results-length{
+        color: $white;
+        width: 44px;
+        height: 44px;
+        border-radius: 44px;
+        padding: 10px 0;
+        display: inline-block;
+      }
+    }
+    .results-content {
+      text-align: left;
+      border: 2px solid;
+      padding: 4rem;
+      margin-bottom: 30px;
+      &.warnings-content{
+        border-color: $yellow;
+      }
+      &.advisories-content{
+        border-color: $red;
+      }
+
+      .advisory-gem{
+        h2{
+          font-weight: bold;
+          font-size: 1.3rem;
+        }
+      }
+
+      .advisory-info{
+        font-weight: bold;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #222222;
+        padding-bottom: 1.5rem;
+        > div{
+          min-height: 61px;
+        }
+        .advisory-info__label{
+          color: $red;
+        }
+        .advisory-description-content{
+          h2{
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0;
+          }
+        }
+        .advisory-title{
+          h2{
+            color: $red;
+            font-weight: bold;
+            font-size: 1rem;
+          }   
+        }
+      }
+      .btn-readmore{
+        display: none;
+      }
+    }
+  }
+
+  .collapse{
+    display: block;
+    word-wrap: break-word;
+  }
+
+  #bottom-bar{
+    display: none;
+  }
+}

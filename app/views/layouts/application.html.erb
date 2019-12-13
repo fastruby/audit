@@ -4,59 +4,52 @@
     <title>Audit Tool</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= render "home/google_analytics" %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body class="content">
-    <header class="full-width">
-      <div id="navbar">
-        <a href="#" id="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-        <nav id="menu">
-          <a class="home" href="/">Home</a>
-          <a class="check_another btn-audit-link" href="/">Check another Gemfile</a>
-          <a href="https://fastruby.io">FastRuby.io</a>
-          <a href="https://fastruby.io/#faq">FAQs</a>
-          <a href="https://fastruby.io/#clients">Our Clients</a>
-          <a href="https://fastruby.io/#">Our Team</a>
-          <a href="https://fastruby.io/#contact-us">Contact Us</a>
+  <body class="<%= controller_name %>-<%= action_name %>">
+    <div class="wrapper">
+      <header class="full-width">
+        <nav class="navbar navbar-expand-md">
+          <div class="navbar-brand">
+            <div class="col-1 navbar-brand__logo">
+              <a href="/">
+                <%= image_tag "fastruby-logo.svg", alt: "FastRuby.io" %>
+                </a>
+            </div>
+            <div class="col-11 navbar-brand__name">
+              <a href="https://fastruby.io" class="navbar-brand__fastruby">
+                <strong>Fast</strong>Ruby
+              </a>
+              <a href="/" class="navbar-brand__audittool">
+                <strong>Audit</strong> Tool
+              </a>
+            </div>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="btn-link" href="https://fastruby.io/#team">Our Team</a>
+              <a class="btn-link" href="https://fastruby.io/#faq">FAQs</a>
+              <a class="btn-link" href="https://fastruby.io/#quotes">Our Clients</a>
+              <a class="btn-link" href="https://fastruby.io/#contact-us">Contact Us</a>
+            </div>
+          </div>
         </nav>
-      </div>
-    </header>
-    <div class="main">
+      </header>
       <%= yield %>
     </div>
 
-    <footer>
-      <div class="logo-container">
-        <h3 class="logo">
-          <a href="https://www.ombulabs.com" target="_blank" title="The Lean Software Boutique">
-            <span class="logo-ombu">Ombu</span>Labs
-          </a>
-        </h3>
-        <h2 class="slogan">
-          <a href="https://www.ombulabs.com" target="_blank" title="Ombu Labs"> THE LEAN SOFTWARE BOUTIQUE </a>
-        </h2>
-      </div>
-      <div>
-        <p class="txt_footer">Made with ❤ in Philadelphia and Buenos Aires</p>
-      </div>
-      <div>
-        <%= link_to 'Privacy Policy', home_privacy_path, id:"privacy" %>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': true %>
+    <%= render "shared/footer" %>
+    <%= yield :script %>
   </body>
 </html>

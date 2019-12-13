@@ -1,0 +1,11 @@
+<% if @file.errors.present? %>
+	// Shows errors
+	$('.error').html('<div class="form-error"><%= @file.errors.full_messages.join('. ') %></div>')
+<% else %>
+	// Scrolls to results when file uploaded
+	$('html, body').animate({
+    scrollTop: $('#result').offset().top - 100
+  }, 300);
+	// Renders the bottom bar
+	$('#bottom-bar').html('<%= escape_javascript(render partial: 'bottom-bar') %>')
+<% end %>

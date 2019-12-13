@@ -1,0 +1,14 @@
+<!DOCTYPE html/>
+<html>
+<head>
+<title>PDF</title>
+  <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+</head>
+<body>
+  <div class='container'>
+    <%= render "shared/pdf-header" %>
+    <%= yield %>
+  </div>
+  <%= render "shared/pdf-footer" %>
+</body>
+</html>

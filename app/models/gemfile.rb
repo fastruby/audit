@@ -1,4 +1,5 @@
 require "bundler/audit/scanner"
+require "open-uri"
 
 class Gemfile < ApplicationRecord
   has_attached_file :file
@@ -51,18 +52,27 @@ class Gemfile < ApplicationRecord
     Pathname(file).each_filename.to_a.last
   end
 
+  def temp_file
+    return @temp_file if @temp_file
+    return file unless file.url.start_with?("//")
+
+    prefix = alpha_id
+    suffix = ".lock"
+    @temp_file = Tempfile.new [prefix, suffix], "#{Rails.root}/tmp"
+    uri = "https:#{file.url}"
+    @temp_file.write(open(uri).read)
+    @temp_file.close
+    @temp_file
+  end
+
   def scanner
     Bundler::Audit::Scanner.new(
-      File.dirname(gemfile_path),
-      File.basename(gemfile_path)
+      File.dirname(temp_file.path),
+      File.basename(temp_file.path)
     )
   end
 
   private
-
-  def gemfile_path
-    file.path
-  end
 
   def generate_alpha_id
     return if alpha_id.present?
