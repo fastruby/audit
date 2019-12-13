@@ -9,7 +9,7 @@ ruby "2.5.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-gem 'bundler-audit', github: 'ombulabs/bundler-audit'
+gem 'bundler-audit'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
@@ -44,7 +44,7 @@ gem "wkhtmltopdf-binary", "0.12.3.1"
 # Jquery
 gem 'jquery-rails'
 # Bootstrap
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Popper
 gem 'popper_js', '~> 1.14.5'
 # gem 'material_design_lite-sass'
