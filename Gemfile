@@ -8,7 +8,7 @@ end
 ruby "2.5.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.1'
 gem 'bundler-audit'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -41,13 +41,8 @@ gem "redcarpet"
 gem "wicked_pdf", "1.4.0"
 gem "wkhtmltopdf-binary", "0.12.3.1"
 
-# Jquery
-gem 'jquery-rails'
-# Bootstrap
-gem 'bootstrap-sass', '~> 3.3.6'
-# Popper
-gem 'popper_js', '~> 1.14.5'
-# gem 'material_design_lite-sass'
+# FastRuby Styleguide
+gem 'ombulabs-styleguide', :git => 'git@github.com:fastruby/styleguide.git', :branch => 'gh-pages'
 
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3.0'
