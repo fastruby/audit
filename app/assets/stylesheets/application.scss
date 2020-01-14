@@ -3,27 +3,11 @@
 ******* application css *******
 ******************************/
 
-// Bootstrap
-@import "bootstrap";
+// Styleguide
+@import "ombulabs/styleguide";
 
-// 0-font awesome
-@import "font-awesome";
-
-// 1-utilities
-@import "1-utilities/reset";
-@import "1-utilities/breakpoints";
-@import "1-utilities/variables";
-
-// 2-quarks
-@import "2-quarks/typography";
-
-// 4-molecules
-@import "4-molecules/backgrounds";
-@import "4-molecules/sections";
-@import "4-molecules/buttons"; 
 @import "4-molecules/header"; 
 @import "4-molecules/forms";
-@import "4-molecules/footer";
 @import "4-molecules/bottom-bar";
 
 // 5-pages
