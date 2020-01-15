@@ -42,7 +42,7 @@ gem "wicked_pdf", "1.4.0"
 gem "wkhtmltopdf-binary", "0.12.3.1"
 
 # FastRuby Styleguide
-gem 'ombulabs-styleguide', :git => 'git@github.com:fastruby/styleguide.git', :branch => 'gh-pages'
+gem 'ombulabs-styleguide', :git => 'https://github.com/fastruby/styleguide.git', :branch => 'gh-pages'
 
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3.0'
