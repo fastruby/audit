@@ -1,25 +1,16 @@
-// Bootstrap
-@import "bootstrap";
-
 // 0-font awesome
 @import "font-awesome";
 
-// 1-utilities
-@import "1-utilities/reset";
-@import "1-utilities/breakpoints";
-@import "1-utilities/variables";
+// 1-styleguide
+@import "ombulabs/styleguide";
 
-// 2-quarks
-@import "2-quarks/typography";
-
-// 4-molecules
-@import "4-molecules/sections";
-@import "4-molecules/buttons"; 
+// 2-header
 @import "4-molecules/header"; 
 
-// 5-pages
+// 3-pages
 @import "5-pages/home";
 @import "5-pages/vulnerabilities";
+
 
 body{
   padding: 0;
@@ -36,6 +27,7 @@ body{
     height: 120px;
     box-shadow: none;
     .navbar-brand {
+      display: block;
       .navbar-brand__name{
         display: block;
       }
@@ -46,15 +38,18 @@ body{
       }
     }
   }
-    
+
   .top-section{
     display: none;
+    height: 0;
+    width: 0;
+    overflow: hidden;
   }
 
   .section-result{
     background: $light-grey;
     color: $white;
-    padding-top: 195px;
+    padding-top: 70px;
     img{
       display: none;
     }
