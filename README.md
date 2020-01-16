@@ -1,11 +1,12 @@
 # Audit
 
-Audit is a microsite created by OmbuLabs. It allows users to check for vulnerabilities on their Gemfiles in an efficient and secure manner. 
+Audit is a microsite created by OmbuLabs. It allows users to check for vulnerabilities on their Gemfiles in an efficient and secure manner.
 
 ## Setup
 
     git clone git@github.com:ombulabs/audit.git
     cd audit
+    ./bin/setup
 
 ## Start
 
