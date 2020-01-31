@@ -181,88 +181,10 @@
             }
           }
           .results-content{
-            padding: 4rem;
-            border: 2px solid;
-            margin-bottom: 1.5rem;
-            text-align: left;
             display: none;
             @include respond-above(xs) {
               display: flex;
               flex-direction: column;
-            }
-            &.warnings-content{
-              border-color: $yellow;
-            }
-            &.advisories-content{
-              border-color: $red;
-              .advisory-gem{
-                h2{
-                  font-weight: bold;
-                  text-transform: uppercase;    
-                }
-              }
-              .advisory-info{
-                border-bottom: 1px solid $black;
-                margin-bottom: 2rem;
-                padding-bottom: 1rem;
-                p{
-                  margin: 0;
-                  font-weight: bold;
-                  &.advisory-info__label{
-                    color: $red;
-                    margin-top: .5rem;
-                  }
-                }
-                .btn{
-                  width: 100%;
-                  padding: 1.22rem 2rem;
-                }
-                > div{
-                  margin-bottom: 1rem;
-                  @include respond-above(sm) {
-                    margin-bottom: 0;
-                  }
-                }
-              }
-              .advisory-title{
-                color: $red;
-              }
-              .advisory-description{
-                margin-bottom: 2rem;
-                &.collapse{
-                  display: block;
-                  height: 11.5em;
-                  min-height: 11.5em;
-                  overflow: hidden;
-                  &.in{
-                    height: auto;
-                    + button{
-                      &:after{
-                        content: "Read Less";
-                      }
-                    }
-                  }
-                }   
-                &.collapsing{
-                  min-height: 11.5em;
-                }
-                + button{
-                  margin: 0 auto;
-                  &:after{
-                        content: "Read More";
-                      }
-                }
-                h2{
-                  font-size: 1rem;
-                  text-transform: uppercase;
-                  margin: 0;
-                  padding: 0;
-                  font-weight: bold;
-                }
-                pre, ul{
-                  margin-bottom: 2rem;
-                }
-              }
             }
           }
         }
