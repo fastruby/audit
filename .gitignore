@@ -8,7 +8,6 @@
 /.bundle
 
 # Ignore app config
-.ruby-version
 .env
 config/database.yml
 
