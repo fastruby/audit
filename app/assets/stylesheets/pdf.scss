@@ -2,10 +2,10 @@
 @import "font-awesome";
 
 // 1-styleguide
-@import "ombulabs/styleguide";
+@import "fastruby/styleguide";
 
 // 2-header
-@import "4-molecules/header"; 
+@import "4-molecules/header";
 
 // 3-pages
 @import "5-pages/home";
@@ -132,7 +132,7 @@ body{
             color: $red;
             font-weight: bold;
             font-size: 1rem;
-          }   
+          }
         }
       }
       .btn-readmore{

@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require ombulabs/styleguide
+//= require fastruby/styleguide
 //
 //= require turbolinks
 //= require_tree .
