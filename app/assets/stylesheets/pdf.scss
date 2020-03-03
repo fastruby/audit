@@ -98,8 +98,13 @@ body{
       &.warnings-content{
         border-color: $yellow;
       }
-      &.advisories-content{
-        border-color: $red;
+      &.advisories-content {
+        .advisory-description {
+          &.collapse{
+            display: block;
+            height: auto;
+          }
+        }
       }
 
       .advisory-gem{
@@ -139,11 +144,6 @@ body{
         display: none;
       }
     }
-  }
-
-  .collapse{
-    display: block;
-    word-wrap: break-word;
   }
 
   #bottom-bar{
