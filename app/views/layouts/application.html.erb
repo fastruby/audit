@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Audit Tool</title>
+    <% if controller_name == 'gemfiles' %>
+      <title>Audit Tool - Report #<%= @alpha_id %></title>
+    <% else %>
+      <title>Audit Tool - Upload your Gemfile.lock to find vulnerabilities in your application</title>
+    <% end %>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
