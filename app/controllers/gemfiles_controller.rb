@@ -19,6 +19,8 @@ class GemfilesController < ApplicationController
     @file = Gemfile.find_by!(alpha_id: params[:id])
     render_vulnerabilities(@file)
 
+    @alpha_id = @file.alpha_id
+    
     respond_to do |format|
       format.html
       format.pdf do
