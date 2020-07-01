@@ -3,9 +3,12 @@
   <head>
     <% if controller_name == 'gemfiles' %>
       <title>Audit Tool - Report #<%= @alpha_id %></title>
+      <meta name="description" content="Report #<%= @alpha_id %> - <%= @vulnerabilities_count %> Vulnerabilities found on your file"/>
     <% else %>
-      <title>Audit Tool - Upload your Gemfile.lock to find vulnerabilities in your application</title>
+      <title>Audit Tool</title>
+      <meta name="description" content="Upload your Gemfile.lock to find vulnerabilities in your application"/>
     <% end %>
+
 
     <%= csrf_meta_tags %>
 
