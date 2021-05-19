@@ -2,6 +2,7 @@
   "name": "audit",
   "description": "Bundler Audit Tool",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
   },
