@@ -6,13 +6,19 @@
   "env": {
   },
   "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
   },
   "addons": [
-
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {
-      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+      "url": "heroku/ruby"
     }
   ]
 }
