@@ -2,17 +2,21 @@
   "name": "audit",
   "description": "Bundler Audit Tool",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
   },
   "formation": {
+    "web": {
+      "quantity": 1
+    }
   },
   "addons": [
-
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {
-      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+      "url": "heroku/ruby"
     }
   ]
 }
