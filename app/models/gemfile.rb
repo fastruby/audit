@@ -25,9 +25,9 @@ class Gemfile < ApplicationRecord
 
     scanner.scan do |result|
       case result
-      when Bundler::Audit::Scanner::InsecureSource
+      when Bundler::Audit::Results::InsecureSource
         @result[:warnings] << "Insecure Source URI found: #{result.source}"
-      when Bundler::Audit::Scanner::UnpatchedGem
+      when Bundler::Audit::Results::UnpatchedGem
         @result[:advisories] << {
           label: "#{result.gem.name}@#{result.gem.version.to_s}",
           name: result.gem.name,
