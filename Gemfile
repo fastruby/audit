@@ -54,11 +54,7 @@ gem 'fastruby-styleguide', :git => 'https://github.com/fastruby/styleguide.git',
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3.0'
 
-if next?
-  gem 'pg', '~> 1.1'
-else
-  gem 'pg', '~> 0.8'
-end
+gem 'pg', '~> 1.1'
 
 gem 'clipboard-rails'
 
