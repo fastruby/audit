@@ -18,7 +18,7 @@ RSpec.describe Gemfile do
   end
   let(:vulnerabilities) { [] }
   let(:bundler_audit_scanner) { BundlerAuditScannerStub.new(vulnerabilities) }
-  
+
   before do
     allow(Bundler::Audit::Scanner).to receive(:new).and_return(bundler_audit_scanner)
   end
@@ -70,8 +70,8 @@ RSpec.describe Gemfile do
     context "when Gemfile.lock is vulnerable" do
       let(:vulnerabilities) do
         [
-          Bundler::Audit::Scanner::InsecureSource.new("http://rubygems.org/"),
-          Bundler::Audit::Scanner::UnpatchedGem.new(
+          Bundler::Audit::Results::InsecureSource.new("http://rubygems.org/"),
+          Bundler::Audit::Results::UnpatchedGem.new(
             OpenStruct.new(name: 'actionmailer', version: '3.0.1'),
             OpenStruct.new({
               id: 'OSVDB-98629',
@@ -80,7 +80,7 @@ RSpec.describe Gemfile do
               description: 'Action Mailer Gem for Ruby contains a format string flaw in the Log Subscriber component. The issue is triggered as format string specifiers (e.g. %s and %x) are not properly sanitized in user-supplied input when handling email addresses. This may allow a remote attacker to cause a denial of service'
             })
           ),
-          Bundler::Audit::Scanner::UnpatchedGem.new(
+          Bundler::Audit::Results::UnpatchedGem.new(
             OpenStruct.new(name: 'actionpack', version: '3.0.1'),
             OpenStruct.new({
               id: 'CVE-2014-7829',
@@ -89,7 +89,7 @@ RSpec.describe Gemfile do
               description: "Specially crafted requests can be used to determine whether a file exists on\nthe filesystem that is outside the Rails application's root directory.  The\nfiles will not be served, but attackers can determine whether or not the file\nexists.  This vulnerability is very similar to CVE-2014-7818, but the\nspecially crafted string is slightly different.\n"
             })
           ),
-          Bundler::Audit::Scanner::UnpatchedGem.new(
+          Bundler::Audit::Results::UnpatchedGem.new(
             OpenStruct.new(name: 'actionpack', version: '3.0.1'),
             OpenStruct.new({
               id: 'CVE-2014-7830',
