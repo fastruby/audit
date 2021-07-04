@@ -77,7 +77,7 @@ jobs:
           PGHOST: 127.0.0.1
           RAILS_ENV: test
           PGUSER: root
-          BUNDLE_GEMFILE=Gemfile.next
+          BUNDLE_GEMFILE: Gemfile.next
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
