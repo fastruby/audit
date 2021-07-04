@@ -1,3 +1,6 @@
+def next?
+  File.basename(__FILE__) == "Gemfile.next"
+end
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -5,10 +8,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.6.7"
+ruby "2.6.6"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+if next?
+  gem 'rails', '~> 6.1.0'
+else
+  gem 'rails', '~> 6.0.0'
+end
+
 gem 'bundler-audit'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -46,7 +54,13 @@ gem 'fastruby-styleguide', :git => 'https://github.com/fastruby/styleguide.git',
 
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3.0'
-gem 'pg', '~> 0.8'
+
+if next?
+  gem 'pg', '~> 1.1'
+else
+  gem 'pg', '~> 0.8'
+end
+
 gem 'clipboard-rails'
 
 group :development, :test do
