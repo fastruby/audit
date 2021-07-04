@@ -3,7 +3,7 @@ orbs:
   ruby: circleci/ruby@0.1.2
 
 jobs:
-  build:
+  build-current:
     docker:
       - image: circleci/ruby:2.6.7-node-browsers
         environment:
@@ -43,6 +43,74 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # Database setup
+      - run: cp ./config/database.yml.sample ./config/database.yml
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:migrate
+
+      # Webpack
+      - run: bundle exec rake assets:precompile
+
+      # run tests!
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+
+            bundle exec rspec --format progress \
+                              --out /tmp/test-results/rspec.xml \
+                              --format progress \
+                              $TEST_FILES
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+  build-next:
+    docker:
+      - image: circleci/ruby:2.6.7-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          RAILS_ENV: test
+          PGUSER: root
+          BUNDLE_GEMFILE=Gemfile.next
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/postgres:9.6.2
+        environment:
+          POSTGRES_DB: pop_test
+          POSTGRES_USER: root
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.next.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.next.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.next.lock" }}
 
       # Database setup
       - run: cp ./config/database.yml.sample ./config/database.yml
