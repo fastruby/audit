@@ -23,8 +23,14 @@ RSpec.describe GemfilesController, type: :controller do
       let(:file_upload) do
         fixture_file_upload(file)
       end
-      let(:msg) do
-        "File has contents that are not what they are reported to be. File is invalid. File content type is invalid"
+      let(:msg_1) do
+        "File has contents that are not what they are reported to be"
+      end
+      let(:msg_2) do
+        "File is invalid"
+      end
+      let(:msg_3) do
+        "File content type is invalid"
       end
 
       before do
@@ -36,7 +42,9 @@ RSpec.describe GemfilesController, type: :controller do
       end
 
       it "loads an error message in flash[:error]" do
-        expect(flash[:error]).to eq(msg)
+        expect(flash[:error]).to include(msg_1)
+        expect(flash[:error]).to include(msg_2)
+        expect(flash[:error]).to include(msg_3)
       end
     end
   end
