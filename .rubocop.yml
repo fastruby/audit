@@ -1,0 +1,32 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - standard
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+
+Rails:
+  Enabled: true
+RSpec:
+  Enabled: true
+RSpec/DescribeClass:
+  Enabled: false
+RSpec/ExampleLength:
+  Max: 20
+RSpec/FilePath:
+  Enabled: false
+Style/MixinUsage:
+  Exclude:
+    - bin/**/*
+Bundler/DuplicatedGem:
+  Enabled: false
