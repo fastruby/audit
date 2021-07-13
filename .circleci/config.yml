@@ -44,6 +44,10 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - run:
+          name: lint
+          command: bundle exec rubocop -c ./.rubocop_with_todo.yml
+
       # Database setup
       - run: cp ./config/database.yml.sample ./config/database.yml
       - run: bundle exec rake db:create
@@ -111,6 +115,10 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.next.lock" }}
+
+      - run:
+          name: lint
+          command: bundle exec rubocop -c ./.rubocop_with_todo.yml
 
       # Database setup
       - run: cp ./config/database.yml.sample ./config/database.yml
