@@ -49,7 +49,7 @@ jobs:
           command: bundle exec rubocop -c ./.rubocop_with_todo.yml
 
       - run:
-          name: Check code quality
+          name: Check code smells (Reek)
           command: bundle exec reek
 
       # Database setup
