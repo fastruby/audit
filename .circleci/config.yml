@@ -45,8 +45,12 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run:
-          name: lint
+          name: Lint
           command: bundle exec rubocop -c ./.rubocop_with_todo.yml
+
+      - run:
+          name: Check code smells (Reek)
+          command: bundle exec reek
 
       # Database setup
       - run: cp ./config/database.yml.sample ./config/database.yml
@@ -117,8 +121,12 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.next.lock" }}
 
       - run:
-          name: lint
+          name: Lint
           command: bundle exec rubocop -c ./.rubocop_with_todo.yml
+
+      - run:
+          name: Check code smells (Reek)
+          command: bundle exec reek
 
       # Database setup
       - run: cp ./config/database.yml.sample ./config/database.yml
