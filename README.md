@@ -1,6 +1,6 @@
 # Audit
 
-Audit is a microsite created by [FastRuby](https://www.fastruby.io/). It allows users to check for vulnerabilities on their Gemfiles in an efficient and secure manner.
+Audit is a Rails application that allows users to check for vulnerabilities in their Gemfiles in an efficient and secure manner.
 
 You can see it working in https://audit.fastruby.io
 
@@ -14,15 +14,13 @@ You can see it working in https://audit.fastruby.io
 
     ./bin/setup
 
-## Start the Server
-
-You can start the application like this:
+## Start the server
 
     rails server
 
 You should be able to go to http://localhost:3000 and see the landing page.
 
-## Running Tests
+## Running tests
 
     rails spec
 
