@@ -36,7 +36,7 @@ jobs:
           command: |
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
-            gem install bundler
+            gem install bundler -v "$BUNDLER_VERSION"
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
@@ -112,7 +112,7 @@ jobs:
           command: |
             echo 'export BUNDLER_VERSION=$(cat Gemfile.next.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
-            gem install bundler
+            gem install bundler -v "$BUNDLER_VERSION"
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
