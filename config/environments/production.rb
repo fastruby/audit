@@ -88,4 +88,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Gzip text responses (HTML/CSS/JS) so pages aren't served uncompressed.
+  config.middleware.use Rack::Deflater
 end
