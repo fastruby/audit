@@ -14,6 +14,9 @@ services:
 
   web:
     build: .
+    # wkhtmltopdf-binary ships a 32-bit x86 binary; arm64 hosts can't run i386
+    # via multiarch (only amd64+i386 is a valid pairing), so force amd64 here.
+    platform: linux/amd64
     command: bundle exec rails server -b 0.0.0.0
     volumes:
       - .:/app

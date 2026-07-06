@@ -21,6 +21,13 @@ RUN apt-get update -qq \
     xfonts-base \
   && rm -rf /var/lib/apt/lists/*
 
+# wkhtmltopdf-binary ships a 32-bit x86 binary; add i386 multiarch support
+# (only valid alongside an amd64 base, see docker-compose.yml).
+RUN dpkg --add-architecture i386 \
+  && apt-get update -qq \
+  && apt-get install -y --no-install-recommends libc6:i386 libstdc++6:i386 \
+  && rm -rf /var/lib/apt/lists/*
+
 # Node 12 matches .nvmrc; used by the asset pipeline (sprockets/coffee/sass).
 # Installed from the official tarball since NodeSource dropped its Node 12 setup script.
 ENV NODE_VERSION=12.13.0
