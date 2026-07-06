@@ -72,5 +72,15 @@ RSpec.describe GemfilesController, type: :controller do
         expect(response).to be_ok
       end
     end
+
+    context "when requesting the PDF format" do
+      it "renders a PDF successfully" do
+        get :show, params: { id: subject.alpha_id, format: :pdf }
+
+        expect(response).to be_ok
+        expect(response.content_type).to eq("application/pdf")
+        expect(response.body).to start_with("%PDF")
+      end
+    end
   end
 end
