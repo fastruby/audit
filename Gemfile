@@ -17,11 +17,13 @@ else
 end
 
 gem "bundler-audit"
+# concurrent-ruby >= 1.3.5 breaks Rails' logger require order on Ruby 2.7
+gem "concurrent-ruby", "< 1.3.5"
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
 gem "puma", "~> 3.7"
-gem "nokogiri", "~> 1.8.2"
+gem "nokogiri", ">= 1.13.0"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Font awesome
