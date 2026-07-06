@@ -62,7 +62,10 @@ gem "wkhtmltopdf-binary", "0.12.3.1"
 # FastRuby Styleguide
 gem "fastruby-styleguide", git: "https://github.com/fastruby/styleguide.git", branch: "gh-pages"
 
-gem "paperclip", "~> 5.2.1"
+# paperclip is unmaintained since 2018 and calls URI.escape (removed in Ruby
+# 3.0); kt-paperclip is a maintained, actively-released fork that fixes this
+# and stays drop-in compatible (same Paperclip:: module/require path).
+gem "kt-paperclip", "~> 8.0.0", require: "paperclip"
 gem "aws-sdk", "~> 2.3.0"
 
 gem "pg", "~> 1.1"
