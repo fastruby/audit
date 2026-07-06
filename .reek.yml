@@ -54,6 +54,8 @@ detectors:
   UtilityFunction:
     exclude:
     - GemfilesController#vulnerabilities_count
+    - GemfileTest#stub_scanner
+    - GemfileTest#valid_file
 # Directories and files below will not be scanned at all
 exclude_paths:
  - vendor
