@@ -9,7 +9,7 @@ if [ ! -f .env ]; then
   cp .env.sample .env
 fi
 
-rm -f tmp/pids/server.pid
+rm -f tmp/pids/server.pid tmp/pids/server_next.pid
 
 bundle exec rails db:prepare
 
