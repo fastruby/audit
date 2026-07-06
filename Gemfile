@@ -11,12 +11,13 @@ end
 ruby "2.7.2"
 
 if next?
-  gem "rails", github: "rails/rails", branch: "main"
+  gem "rails", "~> 7.0.0"
 else
   gem "rails", "~> 6.1.0"
 end
 
 gem "bundler-audit"
+gem "next_rails"
 # concurrent-ruby >= 1.3.5 breaks Rails' logger require order on Ruby 2.7
 gem "concurrent-ruby", "< 1.3.5"
 # Use sqlite3 as the database for Active Record
@@ -27,7 +28,7 @@ gem "nokogiri", ">= 1.13.0"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Font awesome
-gem "font-awesome-rails"
+gem "font-awesome-rails", ">= 4.7.0.9"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -76,11 +77,15 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem "web-console", ">= 3.3.0"
-  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "listen", ">= 3.5"
   gem "reek" # code smells linter
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
+  # spring >= 4 (needed for Rails 7 support) requires Ruby >= 3.1; re-add on the
+  # `next?` side once Ruby is upgraded past this hop.
+  unless next?
+    gem "spring", "~> 2.1"
+    gem "spring-watcher-listen", "~> 2.0.0"
+  end
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

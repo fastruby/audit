@@ -45,6 +45,11 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN bundle _2.2.21_ install --jobs=4 --retry=3
 
+# Dual-boot: Gemfile.next targets the Rails version we're upgrading to.
+# Remove this block (and Gemfile.next / Gemfile.next.lock) once the upgrade lands.
+COPY Gemfile.next Gemfile.next.lock ./
+RUN BUNDLE_GEMFILE=Gemfile.next bundle _2.2.21_ install --jobs=4 --retry=3
+
 COPY . .
 
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
