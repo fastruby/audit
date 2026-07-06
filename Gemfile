@@ -10,15 +10,15 @@ end
 
 ruby "2.7.2"
 
-# Both branches target 7.0.0 for now; bump the `if next?` branch to 7.1.0
-# to start the next dual-boot hop.
-# rubocop:disable Style/IdenticalConditionalBranches
 if next?
-  gem "rails", "~> 7.0.0"
+  # activerecord 7.1.4+ uses `def method_missing(name, ...)` (leading arg +
+  # `...` forwarding), which is Ruby 3.0+ only syntax and fails to parse on
+  # our Ruby 2.7.2, despite the rails gemspec still advertising `>= 2.7.0`.
+  # Cap below that until Ruby is separately upgraded past 3.0.
+  gem "rails", ">= 7.1.0", "< 7.1.4"
 else
   gem "rails", "~> 7.0.0"
 end
-# rubocop:enable Style/IdenticalConditionalBranches
 
 gem "bundler-audit"
 gem "next_rails"
