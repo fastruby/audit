@@ -10,11 +10,15 @@ end
 
 ruby "2.7.2"
 
+# Both branches target 7.0.0 for now; bump the `if next?` branch to 7.1.0
+# to start the next dual-boot hop.
+# rubocop:disable Style/IdenticalConditionalBranches
 if next?
   gem "rails", "~> 7.0.0"
 else
-  gem "rails", "~> 6.1.0"
+  gem "rails", "~> 7.0.0"
 end
+# rubocop:enable Style/IdenticalConditionalBranches
 
 gem "bundler-audit"
 gem "next_rails"
@@ -80,12 +84,7 @@ group :development do
   gem "listen", ">= 3.5"
   gem "reek" # code smells linter
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  # spring >= 4 (needed for Rails 7 support) requires Ruby >= 3.1; re-add on the
-  # `next?` side once Ruby is upgraded past this hop.
-  unless next?
-    gem "spring", "~> 2.1"
-    gem "spring-watcher-listen", "~> 2.0.0"
-  end
+  # spring >= 4 (needed for Rails 7 support) requires Ruby >= 3.1; re-add once Ruby is upgraded.
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

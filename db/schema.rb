@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_25_143727) do
-
+ActiveRecord::Schema[7.0].define(version: 2018_03_25_143727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,9 +18,9 @@ ActiveRecord::Schema.define(version: 2018_03_25_143727) do
     t.string "file_file_name"
     t.string "file_content_type"
     t.integer "file_file_size"
-    t.datetime "file_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "file_updated_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "alpha_id"
   end
 
