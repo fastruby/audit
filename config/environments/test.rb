@@ -1,7 +1,7 @@
 Rails.application.configure do
   config.paperclip_defaults = {
     storage: :filesystem,
-    path: "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+    path: "#{Rails.root}/test/test_files/:class/:id_partition/:style.:extension"
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -28,7 +28,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Raise exceptions instead of rendering exception templates.
-  config.action_dispatch.show_exceptions = false
+  config.action_dispatch.show_exceptions = :none
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false

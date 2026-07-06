@@ -22,7 +22,7 @@ You should be able to go to http://localhost:3000 and see the landing page.
 
 ## Running tests
 
-    rails spec
+    rails test
 
 
 ## Contributing

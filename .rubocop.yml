@@ -3,7 +3,6 @@ inherit_from: .rubocop_todo.yml
 require:
   - standard
   - rubocop-rails
-  - rubocop-rspec
 
 inherit_gem:
   standard: config/base.yml
@@ -17,14 +16,6 @@ AllCops:
 
 Rails:
   Enabled: true
-RSpec:
-  Enabled: true
-RSpec/DescribeClass:
-  Enabled: false
-RSpec/ExampleLength:
-  Max: 20
-RSpec/FilePath:
-  Enabled: false
 Style/MixinUsage:
   Exclude:
     - bin/**/*

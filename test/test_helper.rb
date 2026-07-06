@@ -5,5 +5,7 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  Minitest.after_run do
+    FileUtils.rm_rf(Rails.root.join("test/test_files"))
+  end
 end

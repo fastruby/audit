@@ -53,7 +53,6 @@ Layout/ExtraSpacing:
     - 'config/environments/production.rb'
     - 'config/environments/test.rb'
     - 'config/puma.rb'
-    - 'spec/models/gemfile_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -89,7 +88,6 @@ Layout/SpaceInsideHashLiteralBraces:
   Exclude:
     - 'app/models/gemfile.rb'
     - 'config/initializers/paperclip.rb'
-    - 'spec/controllers/gemfiles_controller_spec.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -97,61 +95,12 @@ Layout/SpaceInsideHashLiteralBraces:
 Layout/TrailingWhitespace:
   Exclude:
     - 'app/controllers/gemfiles_controller.rb'
-    - 'spec/spec_helper.rb'
-
-# Offense count: 1
-# Configuration parameters: AllowedMethods.
-# AllowedMethods: enums
-Lint/ConstantDefinitionInBlock:
-  Exclude:
-    - 'spec/models/gemfile_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Lint/RedundantStringCoercion:
   Exclude:
     - 'app/models/gemfile.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: SkipBlocks, EnforcedStyle.
-# SupportedStyles: described_class, explicit
-RSpec/DescribedClass:
-  Exclude:
-    - 'spec/models/gemfile_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-RSpec/EmptyLineAfterFinalLet:
-  Exclude:
-    - 'spec/controllers/gemfiles_controller_spec.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-RSpec/LeadingSubject:
-  Exclude:
-    - 'spec/controllers/gemfiles_controller_spec.rb'
-    - 'spec/models/gemfile_spec.rb'
-
-# Offense count: 1
-RSpec/LeakyConstantDeclaration:
-  Exclude:
-    - 'spec/models/gemfile_spec.rb'
-
-# Offense count: 6
-RSpec/MultipleExpectations:
-  Max: 12
-
-# Offense count: 12
-# Configuration parameters: IgnoreSharedExamples.
-RSpec/NamedSubject:
-  Exclude:
-    - 'spec/controllers/gemfiles_controller_spec.rb'
-    - 'spec/models/gemfile_spec.rb'
-
-# Offense count: 1
-RSpec/NestedGroups:
-  Max: 4
 
 # Offense count: 8
 # Configuration parameters: EnforcedStyle.
@@ -161,9 +110,6 @@ Rails/FilePath:
     - 'app/models/gemfile.rb'
     - 'config/environments/development.rb'
     - 'config/environments/test.rb'
-    - 'spec/controllers/gemfiles_controller_spec.rb'
-    - 'spec/models/gemfile_spec.rb'
-    - 'spec/spec_helper.rb'
 
 # Offense count: 1
 # Configuration parameters: Include.
@@ -186,12 +132,6 @@ Security/Open:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/BlockComments:
-  Exclude:
-    - 'spec/spec_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/GlobalStdStream:
   Exclude:
     - 'config/environments/production.rb'
@@ -211,7 +151,6 @@ Style/HashSyntax:
 Style/PercentLiteralDelimiters:
   Exclude:
     - 'config/initializers/assets.rb'
-    - 'config/spring.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
