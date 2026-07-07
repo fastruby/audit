@@ -5,7 +5,10 @@ class GemfilesTest < ApplicationSystemTestCase
   test "uploading a Gemfile.lock renders the results page and a downloadable PDF" do
     visit root_path
 
-    attach_file "gemfile_file", Rails.root.join("test/fixtures/files/Gemfile.lock")
+    # The real file input is visually hidden by the custom upload widget's
+    # CSS (a styled label/span sit in front of it); make_visible: false has
+    # Capybara temporarily reveal it just for the attach, then hide it again.
+    attach_file "gemfile_file", Rails.root.join("test/fixtures/files/Gemfile.lock"), make_visible: false
     click_button "Check file"
 
     assert_current_path %r{\A/gemfiles/\w+\z}
