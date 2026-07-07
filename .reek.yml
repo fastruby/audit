@@ -38,6 +38,8 @@ detectors:
     - BundlerAuditScannerStub
     - CreateGemfiles
     - AddAlphaIdToGemfiles
+    - BundlerAuditDatabasePreparerTest
+    - BundlerAuditDatabasePreparerTest::FakeLogger
   TooManyInstanceVariables:
     exclude:
     - GemfilesController
