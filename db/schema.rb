@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2018_03_25_143727) do
+ActiveRecord::Schema[8.0].define(version: 2018_03_25_143727) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "gemfiles", force: :cascade do |t|
     t.string "file_file_name"
@@ -23,5 +23,4 @@ ActiveRecord::Schema[7.1].define(version: 2018_03_25_143727) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "alpha_id"
   end
-
 end
