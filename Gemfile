@@ -9,7 +9,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.7.2"
+ruby "3.2.11"
 
 # rubocop:disable Style/IdenticalConditionalBranches
 if next?
@@ -41,7 +41,12 @@ gem "fastruby-styleguide", git: "https://github.com/fastruby/styleguide.git", br
 # 3.0); kt-paperclip is a maintained, actively-released fork that fixes this
 # and stays drop-in compatible (same Paperclip:: module/require path).
 gem "kt-paperclip", "~> 8.0.0", require: "paperclip"
-gem "aws-sdk", "~> 2.3.0"
+# aws-sdk v2's aws-sdk-core relies on implicit block capture via
+# `Proc.new` with no block, removed in Ruby 3.0. kt-paperclip's S3
+# storage adapter already targets aws-sdk-s3 (the modern per-service
+# SDK, same Aws::S3:: namespace) directly -- no application code
+# changes needed, just the gem swap.
+gem "aws-sdk-s3"
 
 gem "pg", "~> 1.1"
 
@@ -57,10 +62,11 @@ end
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.5"
-  # reek >= 6.2.0 requires Ruby >= 3.0.0; 6.1.4 is the newest release still
-  # compatible with our current Ruby 2.7.2, and its parser ~> 3.2.0 (vs the
-  # old 6.0.4's parser ~> 3.0.0) is what actually unblocks rubocop's version.
-  gem "reek", ">= 6.1.4", "< 6.2.0"
+  gem "reek"
+  # spring 4.x / spring-watcher-listen 2.1.x need Ruby >= 3.1, which we now
+  # satisfy -- previously dropped during the Rails 6.1 -> 7.0 hop.
+  gem "spring"
+  gem "spring-watcher-listen", "~> 2.1.0"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

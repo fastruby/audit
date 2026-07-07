@@ -93,12 +93,25 @@ GEM
     ast (2.4.3)
     autoprefixer-rails (10.4.21.0)
       execjs (~> 2)
-    aws-sdk (2.3.23)
-      aws-sdk-resources (= 2.3.23)
-    aws-sdk-core (2.3.23)
-      jmespath (~> 1.0)
-    aws-sdk-resources (2.3.23)
-      aws-sdk-core (= 2.3.23)
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1266.0)
+    aws-sdk-core (3.252.0)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      bigdecimal
+      jmespath (~> 1, >= 1.6.1)
+      logger
+    aws-sdk-kms (1.129.0)
+      aws-sdk-core (~> 3, >= 3.248.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-s3 (1.226.0)
+      aws-sdk-core (~> 3, >= 3.248.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.12.1)
+      aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.3.0)
     bigdecimal (4.1.2)
     bindex (0.8.1)
@@ -135,6 +148,35 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     drb (2.2.3)
+    dry-configurable (1.3.0)
+      dry-core (~> 1.1)
+      zeitwerk (~> 2.6)
+    dry-core (1.2.0)
+      concurrent-ruby (~> 1.0)
+      logger
+      zeitwerk (~> 2.6)
+    dry-inflector (1.3.1)
+    dry-initializer (3.2.0)
+    dry-logic (1.6.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.1)
+      zeitwerk (~> 2.6)
+    dry-schema (1.16.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 1.0, >= 1.0.1)
+      dry-core (~> 1.1)
+      dry-initializer (~> 3.2)
+      dry-logic (~> 1.6)
+      dry-types (~> 1.9, >= 1.9.1)
+      zeitwerk (~> 2.6)
+    dry-types (1.9.1)
+      bigdecimal (>= 3.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0)
+      dry-inflector (~> 1.0)
+      dry-logic (~> 1.4)
+      zeitwerk (~> 2.6)
     erb (4.0.4.1)
       cgi (>= 0.3.3)
     erubi (1.13.1)
@@ -167,7 +209,6 @@ GEM
       marcel (>= 1.0.1)
       mime-types
       terrapin (>= 0.6.0)
-    kwalify (0.7.2)
     language_server-protocol (3.17.0.6)
     listen (3.10.0)
       logger
@@ -210,7 +251,7 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     parallel (1.28.0)
-    parser (3.2.2.4)
+    parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
     pg (1.6.3)
@@ -272,10 +313,12 @@ GEM
       psych (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
-    reek (6.1.4)
-      kwalify (~> 0.7.0)
-      parser (~> 3.2.0)
+    reek (6.5.0)
+      dry-schema (~> 1.13)
+      logger (~> 1.6)
+      parser (~> 3.3.0)
       rainbow (>= 2.0, < 4.0)
+      rexml (~> 3.1)
     regexp_parser (2.12.0)
     reline (0.6.3)
       io-console (~> 0.5)
@@ -328,6 +371,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    spring (4.7.0)
+    spring-watcher-listen (2.1.0)
+      listen (>= 2.7, < 4.0)
+      spring (>= 4)
     sprockets (3.7.5)
       base64
       concurrent-ruby (~> 1.0)
@@ -373,7 +420,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 2.3.0)
+  aws-sdk-s3
   bundler-audit
   capybara (~> 2.13)
   clipboard-rails
@@ -391,10 +438,12 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (>= 7.1.0, < 7.1.4)
   redcarpet
-  reek (>= 6.1.4, < 6.2.0)
+  reek
   rubocop-rails-omakase
   sass-rails (~> 5.0)
   selenium-webdriver
+  spring
+  spring-watcher-listen (~> 2.1.0)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
@@ -403,7 +452,7 @@ DEPENDENCIES
   wkhtmltopdf-binary (= 0.12.3.1)
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.2.11p268
 
 BUNDLED WITH
    2.2.21
