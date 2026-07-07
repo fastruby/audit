@@ -18,6 +18,13 @@ module VulnerableGems
       s3_region: "us-east-1"
     }
 
+    # This app doesn't use ActiveStorage or ActionCable (file uploads go
+    # through Paperclip); stop their JS from being auto-added to the asset
+    # precompile list. Their modern ES6 syntax breaks Uglifier's ES5-only
+    # parser, which otherwise fails `assets:precompile` on unused assets.
+    config.active_storage.precompile_assets = false
+    config.action_cable.precompile_assets = false
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

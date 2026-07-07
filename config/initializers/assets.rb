@@ -14,3 +14,12 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w(pdf.scss)
+
+# This app doesn't use ActionText (no rich_text fields); it has no
+# precompile_assets opt-out flag like ActiveStorage/ActionCable, so remove
+# its auto-added JS directly. Same ES6-vs-Uglifier problem as the other two.
+# Must happen in after_initialize: ActionText's own engine initializer adds
+# these entries, and it runs after this file, re-adding them if subtracted here.
+Rails.application.config.after_initialize do
+  Rails.application.config.assets.precompile -= %w(actiontext.js actiontext.esm.js trix.js trix.css)
+end
