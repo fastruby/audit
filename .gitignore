@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 /vendor/bundle
+# Local dual-boot bundle path (BUNDLE_PATH in .bundle/config) used to run the
+# suite on the host against Gemfile/Gemfile.next without touching the Docker image.
+/vendor/bundle_localtest
 
 # Ignore app config
 .env

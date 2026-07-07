@@ -12,9 +12,9 @@ end
 ruby "3.2.11"
 
 if next?
-  gem "rails", ">= 7.2.0", "< 7.3.0"
+  gem "rails", ">= 8.0.0", "< 8.1.0"
 else
-  gem "rails", ">= 7.1.0", "< 7.2.0"
+  gem "rails", ">= 7.2.0", "< 7.3.0"
 end
 
 gem "bundler-audit"
