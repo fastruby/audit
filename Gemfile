@@ -9,7 +9,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "3.2.11"
+ruby "3.3.11"
 
 # rubocop:disable Style/IdenticalConditionalBranches
 # Rails 8.0 is now the production version, so both boots target it. The dual-boot
