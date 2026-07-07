@@ -13,9 +13,9 @@ ruby "3.2.11"
 
 # rubocop:disable Style/IdenticalConditionalBranches
 if next?
-  gem "rails", ">= 7.1.0", "< 7.1.4"
+  gem "rails", ">= 7.1.0", "< 7.2.0"
 else
-  gem "rails", ">= 7.1.0", "< 7.1.4"
+  gem "rails", ">= 7.1.0", "< 7.2.0"
 end
 # rubocop:enable Style/IdenticalConditionalBranches
 
@@ -23,6 +23,11 @@ gem "bundler-audit"
 gem "next_rails"
 gem "concurrent-ruby", "< 1.3.5"
 gem "puma", "~> 3.7"
+# minitest 6.0 dropped minitest/mock.rb into a separate minitest-mock gem;
+# pinned below 6 so a transitive bump (e.g. via `bundle update rails`)
+# doesn't silently drag the test suite's own framework across a major
+# version as collateral.
+gem "minitest", "< 6"
 gem "nokogiri", ">= 1.13.0"
 gem "sass-rails", "~> 5.0"
 gem "font-awesome-rails", ">= 4.7.0.9"

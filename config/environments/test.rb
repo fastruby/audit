@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # Moved off config/secrets.yml (removed in Rails 7.2); same value as before.
+  config.secret_key_base = "df266f64098fc45cc7d78a5930526841b54a064f83f5f7fc56b490dcff30fe525366f24cf70a9b6f43020293064594f44b6c0103af7eaf4a9edf8f3146221827"
+
   config.paperclip_defaults = {
     storage: :filesystem,
     path: "#{Rails.root}/test/test_files/:class/:id_partition/:style.:extension"
