@@ -1,0 +1,66 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    # wkhtmltopdf-binary ships a 32-bit x86 binary; arm64 hosts can't run i386
+    # via multiarch (only amd64+i386 is a valid pairing), so force amd64 here.
+    platform: linux/amd64
+    command: bundle exec rails server -b 0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+    depends_on:
+      db:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+
+  web_next:
+    # Reuse the image built for `web` (compose tags it <project>-web, i.e.
+    # audit-web) instead of building a second image. Only BUNDLE_GEMFILE
+    # differs, so a separate build is unnecessary. (Not using `extends` here:
+    # it merges array fields like `ports` instead of overriding them, which
+    # would leak web's 3000:3000 mapping into this service too.)
+    image: audit-web
+    platform: linux/amd64
+    # Distinct pidfile: web and web_next share the same bind-mounted /app, so
+    # they'd otherwise race on tmp/pids/server.pid and refuse to boot together.
+    command: bundle exec rails server -b 0.0.0.0 --pid tmp/pids/server_next.pid
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3000"
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      BUNDLE_GEMFILE: Gemfile.next
+    depends_on:
+      db:
+        condition: service_healthy
+      web:
+        condition: service_started
+    stdin_open: true
+    tty: true
+
+volumes:
+  db_data:

@@ -21,7 +21,7 @@ class Gemfile < ApplicationRecord
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
 
   def check_with_bundler_audit
-    @result = { warnings: [], advisories: [] }
+    @result = {warnings: [], advisories: []}
 
     scanner.scan do |result|
       case result
@@ -60,7 +60,7 @@ class Gemfile < ApplicationRecord
     suffix = ".lock"
     @temp_file = Tempfile.new [prefix, suffix], "#{Rails.root}/tmp"
     uri = "https:#{file.url}"
-    @temp_file.write(open(uri).read)
+    @temp_file.write(URI.open(uri).read)
     @temp_file.close
     @temp_file
   end

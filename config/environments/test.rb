@@ -1,7 +1,10 @@
 Rails.application.configure do
+  # Moved off config/secrets.yml (removed in Rails 7.2); same value as before.
+  config.secret_key_base = "df266f64098fc45cc7d78a5930526841b54a064f83f5f7fc56b490dcff30fe525366f24cf70a9b6f43020293064594f44b6c0103af7eaf4a9edf8f3146221827"
+
   config.paperclip_defaults = {
     storage: :filesystem,
-    path: "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+    path: "#{Rails.root}/test/test_files/:class/:id_partition/:style.:extension"
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -10,7 +13,7 @@ Rails.application.configure do
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs. Don't rely on the data there!
-  config.cache_classes = true
+  config.enable_reloading = false
 
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
@@ -28,7 +31,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Raise exceptions instead of rendering exception templates.
-  config.action_dispatch.show_exceptions = false
+  config.action_dispatch.show_exceptions = :none
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false

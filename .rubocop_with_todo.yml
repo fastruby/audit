@@ -1,12 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
-require:
-  - standard
-  - rubocop-rails
-  - rubocop-rspec
-
 inherit_gem:
-  standard: config/base.yml
+  rubocop-rails-omakase: rubocop.yml
 
 AllCops:
   NewCops: enable
@@ -17,16 +12,6 @@ AllCops:
     - db/migrate/20210701181510_add_service_name_to_active_storage_blobs.active_storage.rb
     - db/migrate/20210701181511_create_active_storage_variant_records.active_storage.rb
 
-Rails:
-  Enabled: true
-RSpec:
-  Enabled: true
-RSpec/DescribeClass:
-  Enabled: false
-RSpec/ExampleLength:
-  Max: 20
-RSpec/FilePath:
-  Enabled: false
 Style/MixinUsage:
   Exclude:
     - bin/**/*

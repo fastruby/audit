@@ -1,0 +1,12 @@
+.git
+.circleci
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+vendor/bundle
+node_modules
+.env
+config/database.yml
+.bundle
+*.sqlite3

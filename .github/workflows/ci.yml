@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        gemfile: [Gemfile, Gemfile.next]
+
+    services:
+      postgres:
+        image: postgres:9.6.2
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      RAILS_ENV: test
+      DATABASE_HOST: 127.0.0.1
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: System dependencies (libpq + wkhtmltopdf's 32-bit binary + imagemagick + JS runtime)
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            libpq-dev imagemagick fontconfig libxrender1 libxext6 \
+            xfonts-75dpi xfonts-base libc6:i386 libstdc++6:i386 nodejs
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.11"
+          bundler-cache: true
+
+      - name: Lint
+        run: bundle exec rubocop -c ./.rubocop_with_todo.yml .
+
+      - name: Check code smells (Reek)
+        run: bundle exec reek .
+
+      - name: Database setup
+        run: |
+          cp ./config/database.yml.sample ./config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+
+      - name: Precompile assets
+        run: bundle exec rake assets:precompile
+
+      - name: Run tests
+        run: bin/rails test
+
+      - name: Run system tests
+        run: bin/rails test:system

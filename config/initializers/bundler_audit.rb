@@ -1,3 +1,3 @@
-require "bundler/audit/database"
+require Rails.root.join("lib/bundler_audit_database_preparer")
 
-Bundler::Audit::Database.update!
+BundlerAuditDatabasePreparer.call
