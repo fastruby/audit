@@ -11,13 +11,11 @@ end
 
 ruby "3.2.11"
 
-# rubocop:disable Style/IdenticalConditionalBranches
 if next?
-  gem "rails", ">= 7.1.0", "< 7.2.0"
+  gem "rails", ">= 7.2.0", "< 7.3.0"
 else
   gem "rails", ">= 7.1.0", "< 7.2.0"
 end
-# rubocop:enable Style/IdenticalConditionalBranches
 
 gem "bundler-audit"
 gem "next_rails"
