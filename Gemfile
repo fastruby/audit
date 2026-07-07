@@ -53,7 +53,7 @@ gem "pg", "~> 1.1"
 gem "clipboard-rails"
 
 group :development, :test do
-  gem "capybara", "~> 2.13"
+  gem "capybara", "~> 3.40"
   gem "rubocop-rails-omakase", require: false
   gem "selenium-webdriver"
   gem "dotenv-rails"

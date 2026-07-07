@@ -15,6 +15,8 @@ RUN dpkg --add-architecture i386 \
     nodejs \
     libc6:i386 \
     libstdc++6:i386 \
+    chromium \
+    chromium-driver \
   && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler -v 2.2.21
