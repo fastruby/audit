@@ -251,6 +251,7 @@ GEM
     nokogiri (1.19.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    ostruct (0.6.3)
     parallel (2.1.0)
     parser (3.3.11.1)
       ast (~> 2.4.1)
@@ -442,6 +443,7 @@ DEPENDENCIES
   minitest (< 6)
   next_rails
   nokogiri (>= 1.13.0)
+  ostruct
   pg (~> 1.1)
   puma (~> 3.7)
   rails (>= 8.1.0, < 8.2.0)
@@ -460,7 +462,7 @@ DEPENDENCIES
   wkhtmltopdf-binary (= 0.12.3.1)
 
 RUBY VERSION
-  ruby 3.4.9p82
+  ruby 4.0.4
 
 BUNDLED WITH
   4.0.15
