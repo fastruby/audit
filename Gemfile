@@ -11,15 +11,12 @@ end
 
 ruby file: ".ruby-version"
 
-# rubocop:disable Style/IdenticalConditionalBranches
-# Rails 8.0 is now the production version, so both boots target it. The dual-boot
-# scaffold is kept intact so the next hop only needs to bump the `next?` branch.
+# Dual boot: current stays on Rails 8.0, `next?` targets the 8.0 -> 8.1 hop.
 if next?
-  gem "rails", ">= 8.0.0", "< 8.1.0"
+  gem "rails", ">= 8.1.0", "< 8.2.0"
 else
   gem "rails", ">= 8.0.0", "< 8.1.0"
 end
-# rubocop:enable Style/IdenticalConditionalBranches
 
 gem "bundler-audit"
 gem "next_rails"
