@@ -1,4 +1,4 @@
-FROM ruby:3.3.11
+FROM ruby:3.4.9
 
 RUN dpkg --add-architecture i386 \
   && apt-get update -qq \

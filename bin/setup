@@ -22,11 +22,6 @@ chdir APP_ROOT do
     cp 'config/database.yml.sample', 'config/database.yml'
   end
 
-  unless File.exist?('.ruby-version')
-    cp '.ruby-version.sample', '.ruby-version'
-    system!("cd .")
-  end
-
   puts '== Installing dependencies =='
   system! 'gem install bundler --conservative'
   system('bundle check') || system!('bundle install')
