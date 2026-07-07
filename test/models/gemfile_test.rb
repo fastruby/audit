@@ -42,6 +42,20 @@ class GemfileTest < ActiveSupport::TestCase
     end
   end
 
+  test "temp_file fetches the attachment via URI.open when the URL is protocol-relative" do
+    gemfile = Gemfile.new(file: valid_file)
+    assert gemfile.save
+    content = "remote gemfile lock contents"
+
+    gemfile.file.stub :url, "//s3.amazonaws.com/bucket/gemfiles/files/1/original/Gemfile.lock" do
+      URI.stub :open, StringIO.new(content) do
+        temp_file = gemfile.temp_file
+
+        assert_equal content, File.read(temp_file.path)
+      end
+    end
+  end
+
   test "nil file makes the record invalid" do
     stub_scanner do
       gemfile = Gemfile.new(file: nil)

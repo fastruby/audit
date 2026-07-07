@@ -60,7 +60,7 @@ class Gemfile < ApplicationRecord
     suffix = ".lock"
     @temp_file = Tempfile.new [prefix, suffix], "#{Rails.root}/tmp"
     uri = "https:#{file.url}"
-    @temp_file.write(open(uri).read)
+    @temp_file.write(URI.open(uri).read)
     @temp_file.close
     @temp_file
   end
