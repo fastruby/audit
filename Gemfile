@@ -23,6 +23,10 @@ end
 
 gem "bundler-audit"
 gem "next_rails"
+# ostruct leaves Ruby's default gems in 4.0 (becomes a bundled gem), so under
+# Bundler it must be declared explicitly or `require "ostruct"` fails -- Rails'
+# own boot path (zeitwerk) requires it. Harmless on 3.4, required on 4.0.
+gem "ostruct"
 gem "concurrent-ruby", "< 1.3.5"
 gem "puma", "~> 3.7"
 # minitest 6.0 dropped minitest/mock.rb into a separate minitest-mock gem;
