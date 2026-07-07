@@ -1,11 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
-require:
-  - standard
-  - rubocop-rails
-
 inherit_gem:
-  standard: config/base.yml
+  rubocop-rails-omakase: rubocop.yml
 
 AllCops:
   NewCops: enable
@@ -14,8 +10,6 @@ AllCops:
     - public/**/*
     - vendor/**/*
 
-Rails:
-  Enabled: true
 Style/MixinUsage:
   Exclude:
     - bin/**/*

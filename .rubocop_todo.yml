@@ -70,24 +70,12 @@ Layout/SpaceAroundOperators:
   Exclude:
     - 'app/models/gemfile.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBrackets: space, no_space
+# rubocop-rails-omakase defaults to spaces inside array/hash literal
+# brackets; keep this codebase's existing no-space convention instead.
 Layout/SpaceInsideArrayLiteralBrackets:
-  Exclude:
-    - 'config/environments/production.rb'
-
-# Offense count: 12
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBraces: space, no_space
+  EnforcedStyle: no_space
 Layout/SpaceInsideHashLiteralBraces:
-  Exclude:
-    - 'app/models/gemfile.rb'
-    - 'config/initializers/paperclip.rb'
+  EnforcedStyle: no_space
 
 # Offense count: 2
 # Cop supports --auto-correct.

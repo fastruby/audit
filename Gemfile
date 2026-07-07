@@ -48,18 +48,19 @@ gem "pg", "~> 1.1"
 gem "clipboard-rails"
 
 group :development, :test do
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
-  gem "rubocop-rails", require: false # rails rules for standard
+  gem "rubocop-rails-omakase", require: false
   gem "selenium-webdriver"
-  gem "standard"
   gem "dotenv-rails"
 end
 
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.5"
-  gem "reek"
+  # reek >= 6.2.0 requires Ruby >= 3.0.0; 6.1.4 is the newest release still
+  # compatible with our current Ruby 2.7.2, and its parser ~> 3.2.0 (vs the
+  # old 6.0.4's parser ~> 3.0.0) is what actually unblocks rubocop's version.
+  gem "reek", ">= 6.1.4", "< 6.2.0"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

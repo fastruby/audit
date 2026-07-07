@@ -21,7 +21,7 @@ class Gemfile < ApplicationRecord
   # validates_attachment_content_type :file, content_type: /\Aimage\/.*\z/
 
   def check_with_bundler_audit
-    @result = { warnings: [], advisories: [] }
+    @result = {warnings: [], advisories: []}
 
     scanner.scan do |result|
       case result

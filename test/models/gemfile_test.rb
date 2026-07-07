@@ -1,6 +1,7 @@
 require "test_helper"
 require "bundler/audit/scanner"
 require "minitest/mock"
+require "ostruct"
 
 class GemfileTest < ActiveSupport::TestCase
   class BundlerAuditScannerStub
