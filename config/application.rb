@@ -28,12 +28,6 @@ module VulnerableGems
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
-    # On Rails 8.0 (the current boot) this opts `to_time` into preserving the full
-    # timezone -- without it, 8.0 warns that the behavior changes in 8.1. Rails 8.1
-    # makes that the default and *deprecates* the setter (no-op shim), so skip it on
-    # the `next?` boot to keep 8.1 warning-free. Removed outright at cutover.
-    config.active_support.to_time_preserves_timezone = :zone unless NextRails.next?
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

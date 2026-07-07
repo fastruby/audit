@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2018_03_25_143727) do
+ActiveRecord::Schema[8.1].define(version: 2018_03_25_143727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "gemfiles", force: :cascade do |t|
-    t.string "file_file_name"
+    t.string "alpha_id"
+    t.datetime "created_at", precision: nil, null: false
     t.string "file_content_type"
+    t.string "file_file_name"
     t.integer "file_file_size"
     t.datetime "file_updated_at", precision: nil
-    t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.string "alpha_id"
   end
 end
