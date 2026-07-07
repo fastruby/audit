@@ -28,6 +28,12 @@ module VulnerableGems
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+    # Rails 8.0 deprecates the boolean/offset form of this setting; opt into the
+    # timezone-preserving behavior (the default from Rails 8.1 on) explicitly so
+    # `to_time` keeps the full zone rather than a bare UTC offset. Valid under
+    # both 7.2 and 8.0, so it's safe to set unconditionally during the dual boot.
+    config.active_support.to_time_preserves_timezone = :zone
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
