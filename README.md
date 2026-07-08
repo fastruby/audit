@@ -6,8 +6,8 @@ You can see it working in https://audit.fastruby.io
 
 ## Requirements
 
-- Ruby version `3.2.11` (see `Gemfile`)
-- Node (see `package.json`)
+- Ruby version `4.0.4` (see `.ruby-version` / `.tool-versions`)
+- Node version `24.18.0` (see `.tool-versions`)
 - Docker + Docker Compose (recommended for local development)
 
 ## Getting started (Docker)
@@ -18,8 +18,8 @@ The easiest way to run the app locally is with Docker Compose, which builds the 
 
 This starts:
 
-- `db` — Postgres 13
-- `web` — the app on http://localhost:3000, running against the default `Gemfile` (currently Rails 7.1)
+- `db` — Postgres 16
+- `web` — the app on http://localhost:3000, running against the default `Gemfile` (currently Rails 8.1)
 - `web_next` — the same image, but with `BUNDLE_GEMFILE=Gemfile.next`, on http://localhost:3001 (see "Dual-boot Rails upgrades" below)
 
 `docker/entrypoint.sh` copies `config/database.yml.sample` / `.env.sample` into place and runs `rails db:prepare` on boot, so no manual DB setup is needed.
@@ -48,7 +48,9 @@ Also run before opening a PR:
 
 ## Dual-boot Rails upgrades
 
-This app uses the [`next_rails`](https://github.com/fastruby/next_rails) dual-boot pattern to upgrade Rails one minor version at a time. `Gemfile.next` is a symlink to `Gemfile`; the `if next?` check in `Gemfile` only switches to the newer Rails constraint when Bundler is invoked with `BUNDLE_GEMFILE=Gemfile.next` (e.g. `web_next` above, or CI). The *default* `Gemfile`/`Gemfile.lock` — what actually runs in production — keeps the older, verified version until a later "make it the default" commit flips both branches over. Check `git log --grep="the default"` for examples of that pattern in this repo's history.
+This app uses the [`next_rails`](https://github.com/fastruby/next_rails) dual-boot pattern to upgrade Rails one minor version at a time. `Gemfile.next` is a symlink to `Gemfile`; the `if next?` check in `Gemfile` switches the Rails constraint when Bundler is invoked with `BUNDLE_GEMFILE=Gemfile.next` (e.g. `web_next` above, or CI).
+
+The Rails 8.1 upgrade is complete, so both boots currently target the same version (`>= 8.1.0, < 8.2.0`) and the `if next?` branches are identical. The scaffold is deliberately kept intact so the next hop only needs to bump the `next?` branch to the newer constraint, verify it under `web_next`/CI, then flip the default over in a "make it the default" commit. Check `git log --grep="the default"` for examples of that pattern in this repo's history.
 
 ## Deploying / production notes
 
