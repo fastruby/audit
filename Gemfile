@@ -57,8 +57,6 @@ gem "aws-sdk-s3"
 
 gem "pg", "~> 1.1"
 
-gem "clipboard-rails"
-
 group :development, :test do
   gem "capybara", "~> 3.40"
   gem "rubocop-rails-omakase", require: false
