@@ -32,7 +32,7 @@ gem "puma", "~> 3.7"
 # version as collateral.
 gem "minitest", "< 6"
 gem "nokogiri", ">= 1.13.0"
-gem "sass-rails", "~> 5.0"
+gem "sass-rails", "~> 6.0"
 gem "font-awesome-rails", ">= 4.7.0.9"
 gem "uglifier", ">= 1.3.0"
 
