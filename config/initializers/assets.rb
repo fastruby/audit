@@ -17,7 +17,8 @@ Rails.application.config.assets.precompile += %w(pdf.scss)
 
 # This app doesn't use ActionText (no rich_text fields); it has no
 # precompile_assets opt-out flag like ActiveStorage/ActionCable, so remove
-# its auto-added JS directly. Same ES6-vs-Uglifier problem as the other two.
+# its auto-added JS directly. Same reasoning as those two: unused JS, no
+# point precompiling it.
 # Must happen in after_initialize: ActionText's own engine initializer adds
 # these entries, and it runs after this file, re-adding them if subtracted here.
 Rails.application.config.after_initialize do
