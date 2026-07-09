@@ -40,7 +40,6 @@ gem "sass-rails", "~> 6.0"
 gem "font-awesome-rails", ">= 4.7.0.9"
 gem "terser"
 
-gem "turbolinks", "~> 5"
 gem "redcarpet"
 gem "wicked_pdf", "1.4.0"
 gem "wkhtmltopdf-binary", "0.12.3.1"

@@ -12,5 +12,4 @@
 //
 //= require fastruby/styleguide
 //
-//= require turbolinks
 //= require_tree .
