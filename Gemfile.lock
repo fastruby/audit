@@ -388,9 +388,6 @@ GEM
     tilt (2.8.0)
     timeout (0.6.1)
     tsort (0.2.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.2.0)
@@ -444,7 +441,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.1.0)
   terser
-  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
   wicked_pdf (= 1.4.0)
