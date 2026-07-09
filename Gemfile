@@ -36,7 +36,6 @@ gem "sass-rails", "~> 6.0"
 gem "font-awesome-rails", ">= 4.7.0.9"
 gem "uglifier", ">= 1.3.0"
 
-gem "coffee-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "redcarpet"
 gem "wicked_pdf", "1.4.0"
