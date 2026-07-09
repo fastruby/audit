@@ -368,6 +368,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (6.6.2)
+      railties (>= 5.2.0)
+      sentry-ruby (~> 6.6.2)
+    sentry-ruby (6.6.2)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      logger
     spring (4.7.0)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
@@ -438,6 +445,8 @@ DEPENDENCIES
   rubocop-rails-omakase
   sass-rails (~> 6.0)
   selenium-webdriver
+  sentry-rails
+  sentry-ruby
   spring
   spring-watcher-listen (~> 2.1.0)
   terser
