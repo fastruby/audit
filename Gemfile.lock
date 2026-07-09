@@ -252,7 +252,8 @@ GEM
     prettyprint (0.2.0)
     prism (1.9.0)
     public_suffix (7.0.5)
-    puma (3.12.6)
+    puma (8.0.2)
+      nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.23)
     rack-session (1.0.2)
@@ -433,7 +434,7 @@ DEPENDENCIES
   nokogiri (>= 1.13.0)
   ostruct
   pg (~> 1.1)
-  puma (~> 3.7)
+  puma (~> 8.0)
   rails (>= 8.1.0, < 8.2.0)
   redcarpet
   reek
