@@ -20,8 +20,7 @@ module VulnerableGems
 
     # This app doesn't use ActiveStorage or ActionCable (file uploads go
     # through Paperclip); stop their JS from being auto-added to the asset
-    # precompile list. Their modern ES6 syntax breaks Uglifier's ES5-only
-    # parser, which otherwise fails `assets:precompile` on unused assets.
+    # precompile list -- it's unused, so there's no point compiling it.
     config.active_storage.precompile_assets = false
     config.action_cable.precompile_assets = false
 
