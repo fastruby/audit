@@ -25,7 +25,7 @@ gem "bundler-audit"
 gem "next_rails"
 gem "ostruct"
 gem "concurrent-ruby", "< 1.3.5"
-gem "puma", "~> 3.7"
+gem "puma", "~> 8.0"
 # minitest 6.0 dropped minitest/mock.rb into a separate minitest-mock gem;
 # pinned below 6 so a transitive bump (e.g. via `bundle update rails`)
 # doesn't silently drag the test suite's own framework across a major
