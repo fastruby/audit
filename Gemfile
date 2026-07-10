@@ -30,11 +30,11 @@ gem "ostruct"
 # in 1.3.7.
 gem "concurrent-ruby", ">= 1.3.7"
 gem "puma", "~> 8.0"
-# minitest 6.0 dropped minitest/mock.rb into a separate minitest-mock gem;
-# pinned below 6 so a transitive bump (e.g. via `bundle update rails`)
-# doesn't silently drag the test suite's own framework across a major
-# version as collateral.
-gem "minitest", "< 6"
+# minitest 6.0 moved minitest/mock into a separate minitest-mock gem. The test
+# suite uses it (`require "minitest/mock"` + `.stub`), so it's declared
+# explicitly now that we're on minitest 6.
+gem "minitest"
+gem "minitest-mock"
 gem "nokogiri", ">= 1.13.0"
 gem "sass-rails", "~> 6.0"
 gem "terser"
