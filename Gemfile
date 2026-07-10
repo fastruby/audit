@@ -76,4 +76,12 @@ group :development do
   gem "spring-watcher-listen", "~> 2.1.0"
 end
 
+# Exception tracking. Reports unhandled exceptions to Sentry in production;
+# the DSN is supplied via the SENTRY_DSN env var (see .env.sample). sentry-rails
+# auto-installs the Rack/Rails middleware, so no controller changes are needed.
+group :production do
+  gem "sentry-ruby"
+  gem "sentry-rails"
+end
+
 gem "tzinfo-data", platforms: [:windows, :jruby]
