@@ -223,7 +223,10 @@ GEM
     mime-types-data (3.2026.0701)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.27.0)
+    minitest (6.0.6)
+      drb (~> 2.0)
+      prism (~> 1.5)
+    minitest-mock (5.27.0)
     net-imap (0.6.4.1)
       date
       net-protocol
@@ -428,7 +431,8 @@ DEPENDENCIES
   fastruby-styleguide!
   kt-paperclip (~> 8.0.0)
   listen (>= 3.5)
-  minitest (< 6)
+  minitest
+  minitest-mock
   next_rails
   nokogiri (>= 1.13.0)
   ostruct
