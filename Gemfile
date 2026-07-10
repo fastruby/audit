@@ -40,7 +40,10 @@ gem "sass-rails", "~> 6.0"
 gem "terser"
 
 gem "redcarpet"
-gem "wicked_pdf", "1.4.0"
+gem "wicked_pdf", "~> 2.8"
+# wkhtmltopdf-binary is held at 0.12.3.1: the 0.12.6.x Linux binary segfaults
+# (SIGSEGV) in CI/Heroku, and 0.12.6 also blocks local file access by default,
+# which breaks the PDF's logo/stylesheet. wkhtmltopdf is EOL, so 0.12.3.1 stays.
 gem "wkhtmltopdf-binary", "0.12.3.1"
 
 gem "fastruby-styleguide", git: "https://github.com/fastruby/styleguide.git", branch: "gh-pages"
