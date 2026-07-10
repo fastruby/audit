@@ -69,10 +69,6 @@ group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.5"
   gem "reek"
-  # spring 4.x / spring-watcher-listen 2.1.x need Ruby >= 3.1, which we now
-  # satisfy -- previously dropped during the Rails 6.1 -> 7.0 hop.
-  gem "spring"
-  gem "spring-watcher-listen", "~> 2.1.0"
 end
 
 # Exception tracking. Reports unhandled exceptions to Sentry in production;
