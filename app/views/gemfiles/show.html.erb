@@ -1,3 +1,6 @@
+<% content_for :title, "Audit Tool - Report ##{@alpha_id}" %>
+<% content_for :description, "Report ##{@alpha_id} - #{@vulnerabilities_count} Vulnerabilities found on your file" %>
+
 <% content_for :script do %>
   <script>
     $('html, body').animate({

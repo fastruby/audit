@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% if controller_name == 'gemfiles' %>
-      <title>Audit Tool - Report #<%= @alpha_id %></title>
-      <meta name="description" content="Report #<%= @alpha_id %> - <%= @vulnerabilities_count %> Vulnerabilities found on your file"/>
-    <% else %>
-      <title>Audit Tool</title>
-      <meta name="description" content="Upload your Gemfile.lock to find vulnerabilities in your application"/>
-    <% end %>
+    <title><%= content_for?(:title) ? yield(:title) : t('meta.default_title') %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t('meta.default_description') %>"/>
 
 
     <%= csrf_meta_tags %>

@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  meta:
+    default_title: "Free Gemfile.lock Vulnerability Scanner | FastRuby.io"
+    default_description: "Upload your Gemfile.lock to find vulnerabilities in your application"
