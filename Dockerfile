@@ -4,7 +4,6 @@ FROM ruby:4.0.4
 RUN dpkg --add-architecture i386 \
   && apt-get update -qq \
   && apt-get install -y --no-install-recommends \
-    build-essential \
     libpq-dev \
     postgresql-client \
     imagemagick \
@@ -13,7 +12,6 @@ RUN dpkg --add-architecture i386 \
     libxext6 \
     xfonts-75dpi \
     xfonts-base \
-    nodejs \
     libc6:i386 \
     libstdc++6:i386 \
     chromium \

@@ -34,12 +34,7 @@ services:
     tty: true
 
   web_next:
-    # Reuse the image built for `web` (compose tags it <project>-web, i.e.
-    # audit-web) instead of building a second image. Only BUNDLE_GEMFILE
-    # differs, so a separate build is unnecessary. (Not using `extends` here:
-    # it merges array fields like `ports` instead of overriding them, which
-    # would leak web's 3000:3000 mapping into this service too.)
-    image: audit-web
+    build: .
     platform: linux/amd64
     # Distinct pidfile: web and web_next share the same bind-mounted /app, so
     # they'd otherwise race on tmp/pids/server.pid and refuse to boot together.
