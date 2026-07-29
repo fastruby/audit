@@ -1,5 +1,7 @@
 .git
-.circleci
+.github
+.DS_Store
+coverage
 log/*
 tmp/*
 !log/.keep
