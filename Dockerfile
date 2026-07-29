@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM ruby:4.0.4
 
 RUN dpkg --add-architecture i386 \
