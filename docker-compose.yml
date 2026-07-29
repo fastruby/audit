@@ -58,7 +58,7 @@ services:
       db:
         condition: service_healthy
       web:
-        condition: service_started
+        condition: service_healthy
     stdin_open: true
     tty: true
 

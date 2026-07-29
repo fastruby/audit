@@ -42,5 +42,8 @@ COPY . .
 
 EXPOSE 3000
 
+HEALTHCHECK --interval=10s --timeout=3s --start-period=60s --retries=6 \
+  CMD curl -fsS http://localhost:3000/up || exit 1
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
