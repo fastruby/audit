@@ -36,10 +36,9 @@ COPY Gemfile.next Gemfile.next.lock ./
 RUN --mount=type=cache,target=/usr/local/bundle/cache,sharing=locked \
   BUNDLE_GEMFILE=/app/Gemfile.next bundle install
 
-COPY . .
+COPY --chmod=0755 docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
-COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY . .
 
 EXPOSE 3000
 
