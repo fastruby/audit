@@ -53,7 +53,7 @@ services:
       DATABASE_HOST: db
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
-      BUNDLE_GEMFILE: Gemfile.next
+      BUNDLE_GEMFILE: /app/Gemfile.next
     depends_on:
       db:
         condition: service_healthy
