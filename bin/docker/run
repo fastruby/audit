@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+cd "$(dirname "$0")/../.."
+if [ "$(basename "$BUNDLE_GEMFILE")" = "Gemfile.next" ]; then
+  CONTAINER=web_next
+else
+  CONTAINER=web
+fi
+exec docker compose run --rm "$CONTAINER" "$@"
+
