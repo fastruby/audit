@@ -55,8 +55,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      web:
-        condition: service_healthy
     stdin_open: true
     tty: true
 
