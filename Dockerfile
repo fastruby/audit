@@ -20,7 +20,9 @@ RUN dpkg --add-architecture i386 \
 
 WORKDIR /app
 
-ENV BUNDLE_GEMFILE=/app/Gemfile \
+ARG BUNDLE_GEMFILE=/app/Gemfile
+
+ENV BUNDLE_GEMFILE=${BUNDLE_GEMFILE} \
     BUNDLE_JOBS=4 \
     BUNDLE_RETRY=3
 
