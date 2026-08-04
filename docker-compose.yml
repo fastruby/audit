@@ -34,7 +34,10 @@ services:
     tty: true
 
   web_next:
-    build: .
+    build:
+      context: .
+      args:
+        BUNDLE_GEMFILE: /app/Gemfile.next
     platform: linux/amd64
     # Distinct pidfile: web and web_next share the same bind-mounted /app, so
     # they'd otherwise race on tmp/pids/server.pid and refuse to boot together.
