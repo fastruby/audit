@@ -11,16 +11,9 @@ def system!(*args)
 end
 
 CONTAINER = ENV["BUNDLE_GEMFILE"] == "Gemfile.next" ? "web_next" : "web"
-DOCKER_PREFIX = if ENV["CI"] || ENV["RAILS_ENV"] == "test"
-  # run as the non-root CI user so files created by commands are owned correctly
-  "docker compose run --user 3434:3434 #{CONTAINER}"
-else
-  # local development: run with the container default user
-  "docker compose run #{CONTAINER}"
+DOCKER_PREFIX = if ENV["RAILS_ENV"] == "test"
+  "docker compose run --rm #{CONTAINER}"
 end
-
-# explicit root-run prefix (used only when we must perform privileged actions)
-DOCKER_ROOT_PREFIX = "docker compose run --user root #{CONTAINER}"
 
 chdir APP_ROOT do
   # This script is a starting point to setup your application.
@@ -42,14 +35,7 @@ chdir APP_ROOT do
   end
 
   puts "== Build images =="
-  system! "docker compose build"
+  system! "docker compose build #{CONTAINER}"
 
-  # Some images / mounts can make the rails bin non-executable for the non-root user.
-  if ENV["CI"]
-    # run migrations as root to avoid exec permission issues, then restore ownership
-    system! "#{DOCKER_ROOT_PREFIX} rails db:create db:migrate"
-    system! "#{DOCKER_ROOT_PREFIX} sh -c 'chown -R 3434:3434 /code || true'"
-  else
-    system! "#{DOCKER_PREFIX} rails db:create db:migrate"
-  end
+  system! "#{DOCKER_PREFIX} rails db:create db:migrate"
 end
