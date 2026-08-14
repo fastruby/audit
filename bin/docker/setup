@@ -11,9 +11,7 @@ def system!(*args)
 end
 
 CONTAINER = ENV["BUNDLE_GEMFILE"] == "Gemfile.next" ? "web_next" : "web"
-DOCKER_PREFIX = if ENV["RAILS_ENV"] == "test"
-  "docker compose run --rm #{CONTAINER}"
-end
+DOCKER_PREFIX = "docker compose run --rm #{CONTAINER}"
 
 chdir APP_ROOT do
   # This script is a starting point to setup your application.
