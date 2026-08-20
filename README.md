@@ -29,7 +29,7 @@ bin/docker/start
 BUNDLE_GEMFILE=Gemfile.next bin/docker/start
 ```
 
-Keep in mind that if you change any of the dependencies of the application, you will need to
+Note that the web_next service starts on port 3001 and not 3000. Also, keep in mind that if you change any of the dependencies of the application, you will need to
 run the corresponding setup command.
 
 ## Getting started (without Docker)
