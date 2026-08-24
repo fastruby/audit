@@ -12,17 +12,24 @@ You can see it working in https://audit.fastruby.io
 
 ## Getting started (Docker)
 
-The easiest way to run the app locally is with Docker Compose, which builds the app image and a Postgres database for you:
+First, run:
 
-    docker compose up --build
+```bash
+bin/docker/setup && \
+BUNDLE_GEMFILE=Gemfile.next bin/docker/setup
+```
 
-This starts:
+This will build both sets of images for each version of Rails. Then, to start the containers:
 
-- `db` — Postgres 16
-- `web` — the app on http://localhost:3000, running against the default `Gemfile` (currently Rails 8.1)
-- `web_next` — the same image, but with `BUNDLE_GEMFILE=Gemfile.next`, on http://localhost:3001 (see "Dual-boot Rails upgrades" below)
+```bash
+# For the current version of Rails
+bin/docker/start
 
-`docker/entrypoint.sh` copies `config/database.yml.sample` / `.env.sample` into place and runs `rails db:prepare` on boot, so no manual DB setup is needed.
+# For the next version of Rails
+BUNDLE_GEMFILE=Gemfile.next bin/docker/start
+```
+
+Note that the web_next service starts on port 3001 and not 3000.
 
 ## Getting started (without Docker)
 
@@ -35,7 +42,7 @@ You should be able to go to http://localhost:3000 and see the landing page.
 
 Inside Docker:
 
-    docker compose run --rm -e RAILS_ENV=test -e DATABASE_HOST=db -e DATABASE_USERNAME=postgres -e DATABASE_PASSWORD=postgres web bin/rails test
+    bin/docker/run bin/rails test
 
 Without Docker:
 
