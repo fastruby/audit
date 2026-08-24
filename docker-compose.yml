@@ -41,7 +41,7 @@ services:
     platform: linux/amd64
     # Distinct pidfile: web and web_next share the same bind-mounted /app, so
     # they'd otherwise race on tmp/pids/server.pid and refuse to boot together.
-    command: bundle exec rails server -b 0.0.0.0 --pid tmp/pids/server_next.pid
+    command: bundle exec rails server -b 0.0.0.0 -p 3001 --pid tmp/pids/server_next.pid
     volumes:
       - .:/app
     ports:
