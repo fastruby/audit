@@ -6,7 +6,7 @@ You can see it working in https://audit.fastruby.io
 
 ## Requirements
 
-- Ruby version `4.0.4` (see `.ruby-version` / `.tool-versions`)
+- Ruby version `4.0.10` (see `.ruby-version` / `.tool-versions`)
 - Node version `24.18.0` (see `.tool-versions`)
 - Docker + Docker Compose (recommended for local development)
 
