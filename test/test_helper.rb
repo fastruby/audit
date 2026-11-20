@@ -15,6 +15,8 @@ end
 # https://github.com/teamcapybara/capybara/pull/2868
 # https://github.com/teamcapybara/capybara/pull/2867
 Capybara::Selenium::Driver::ChromeDriver.class_eval do
+  # Mirrors Capybara's upstream reset!, so keep its shape rather than splitting it up.
+  # :reek:TooManyStatements
   def reset!
     # Use instance variable directly so we avoid starting the browser just to reset the session
     return unless @browser
