@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ruby:4.0.4
+FROM ruby:4.0.10
 
 RUN dpkg --add-architecture i386 \
   && apt-get update -qq \
